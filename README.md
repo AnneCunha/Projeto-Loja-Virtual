@@ -39,4 +39,5 @@ Quer contribuir com melhorias para a KanoWai? Fique à vontade para abrir um pul
 ### 🐙 GitHub: 
 Anellise Cunha - https://github.com/AnneCunha
 Anna Malzone - https://github.com/AnnaMalzone
+Claudio Lobo - https://github.com/lobo-chaib
 
