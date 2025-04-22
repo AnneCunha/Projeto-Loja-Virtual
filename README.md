@@ -37,8 +37,10 @@ Quer contribuir com melhorias para a KanoWai? Fique à vontade para abrir um pul
 #### 📧 Email: 
 *Não disponível*
 #### 🐙 GitHub: 
+- Andrew Cesar - 
 - Anellise Cunha - https://github.com/AnneCunha
 - Anna Malzone - https://github.com/AnnaMalzone
 - Claudio Lobo - https://github.com/lobo-chaib
 - Juliano Awazu - https://github.com/awazudev
+- Ygor Belarmino - https://github.com/Mercurykz
 
