@@ -21,7 +21,6 @@ Este projeto será desenvolvido com as seguintes tecnologias:
 
 #### 📸 Capturas de Tela do protótipo:
 
-![image](https://github.com/user-attachments/assets/59aaefa2-c9d4-4f24-82d9-60a5d84f666d)
 ![image](https://github.com/user-attachments/assets/e9e36e05-cd62-4906-8cb6-695597f1cb33)
 ![image](https://github.com/user-attachments/assets/64bf7904-a22d-430a-bb50-0b9df33f3522)
 
