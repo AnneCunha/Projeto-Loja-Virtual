@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div class="header">
@@ -25,11 +26,32 @@
             <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Home</a></button>
             <button class="ButtonHome"><a href="produtos.html" class="LinkagemHome">Produtos</a></button>
             <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
+            <button class="ButtonHome" id="loginButton" onclick="openLoginModal()">Login</button>
         </div>
 
         <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
   
-    </div>    
+    </div>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content login">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <h2 style="font-size: 36px; text-align: center; margin: 20px 0 50px; font-weight: bold;">Login</h2>
+        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 50px;">
+            <div style="display: flex; align-items: center; margin-bottom: 25px;">
+                <label style="width: 100px; margin-right: 20px; text-align: right; font-size: 18px;">Login</label>
+                <input type="text" id="login" name="login" required style="width: 200px; height: 35px; border: 2px solid black; background: none; padding: 5px;">
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label style="width: 100px; margin-right: 20px; text-align: right; font-size: 18px;">Senha</label>
+                <input type="password" id="password" name="password" required style="width: 200px; height: 35px; border: 2px solid black; background: none; padding: 5px;">
+            </div>
+        </div>
+        <button type="button" class="add-to-cart" onclick="handleLogin()" style="width: 100px; height: 40px; background-color: #D8A7A7; border: none; color: white; margin: 0 auto; display: block; border-radius: 5px; font-size: 16px;">Entrar</button>
+        <div id="errorMessage" style="color: red; margin-top: 20px; text-align: center;"></div>
+    </div>
+</div>
+
     <h1>Categorias</h1>
     <div class="categorias">
         <div class="categoria">
@@ -161,7 +183,6 @@
             modalTitle.textContent = title;
             modalDescription.innerHTML = "Este é o <strong>" + title + "</strong>, disponível por <strong>" + price + "</strong>. Aproveite a oferta e leve o seu!";
 
-
             // Exibe o modal com classe de animação
             modal.classList.add('show');
         }
@@ -203,6 +224,99 @@
     });
     </script>
 
+    <script>
+        function openLoginModal() {
+            document.getElementById('loginModal').classList.add('show');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.remove('show');
+        }
+
+        // Fechar modal de login clicando fora
+        window.onclick = function(event) {
+            const loginModal = document.getElementById('loginModal');
+            if (event.target == loginModal) {
+                closeLoginModal();
+            }
+        }
+    </script>
+
+    <!-- Integração do Supabase -->
+    <script>
+        // Configuração (hardcoded)
+        const SUPABASE_URL = 'https://xrljgcfoqdasdblbnvkz.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhybGpnY2ZvcWRhc2RibGJudmt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MzEyNjAsImV4cCI6MjA3MzAwNzI2MH0.6oVGMEBEHgFXx29KSdDUB28G0-1jFvY7VGFLeHDDnMc';
+
+        let supabaseClient;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicialização do Supabase
+            const { createClient } = supabase;
+            supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+            // Função de login
+            window.handleLogin = async function() {
+                const loginValue = document.getElementById('login').value.trim();
+                const passwordValue = document.getElementById('password').value.trim();
+
+                if (!loginValue || !passwordValue) {
+                    document.getElementById('errorMessage').textContent = 'Preencha login e senha.';
+                    return;
+                }
+
+                try {
+                    // Check usuarios table
+                    let { data: usuario, error: usuarioError } = await supabaseClient
+                        .from('usuarios')
+                        .select('nome')
+                        .eq('login', loginValue)
+                        .eq('senha', passwordValue)
+                        .single();
+
+                    if (usuario && !usuarioError) {
+                        sessionStorage.setItem('user', JSON.stringify({ role: 'Cliente', name: usuario.nome }));
+                        window.location.href = 'welcome.html?name=' + encodeURIComponent(usuario.nome);
+                        return;
+                    }
+
+                    // Check entregadores table
+                    let { data: entregador, error: entregadorError } = await supabaseClient
+                        .from('entregadores')
+                        .select('nome')
+                        .eq('login', loginValue)
+                        .eq('senha', passwordValue)
+                        .single();
+
+                    if (entregador && !entregadorError) {
+                        sessionStorage.setItem('user', JSON.stringify({ role: 'Entregador', name: entregador.nome }));
+                        window.location.href = 'welcome_entregadores.html?name=' + encodeURIComponent(entregador.nome);
+                        return;
+                    }
+
+                    // Check gestores table
+                    let { data: gestor, error: gestorError } = await supabaseClient
+                        .from('gestores')
+                        .select('nome')
+                        .eq('login', loginValue)
+                        .eq('senha', passwordValue)
+                        .single();
+
+                    if (gestor && !gestorError) {
+                        sessionStorage.setItem('user', JSON.stringify({ role: 'Gestor', name: gestor.nome }));
+                        window.location.href = 'welcome_gestores.html?name=' + encodeURIComponent(gestor.nome);
+                        return;
+                    }
+
+                    // No match found or errors occurred
+                    document.getElementById('errorMessage').textContent = 'Login ou senha incorretos.';
+                } catch (error) {
+                    console.error('Erro ao fazer login:', error);
+                    document.getElementById('errorMessage').textContent = 'Erro ao fazer login. Tente novamente.';
+                }
+            };
+        });
+    </script>
 
     <footer>
         <div class="footer">

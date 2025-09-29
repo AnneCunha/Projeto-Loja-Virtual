@@ -1,0 +1,284 @@
+html {
+    font-family: "Nunito", sans-serif;
+    background-color: #E3DADA;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header {
+    background-color: #F5DFDF;
+    padding: 20px;
+    text-align: center;
+    font-size: 35px;
+    border-bottom: solid;
+    border-color: #E0B7B5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logoimg {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #E0B7B5;
+}
+.ButtonHome {
+    background-color: #E0B7B5;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #b4b3b3;
+}
+.ButtonHome:hover {
+    background-color: #b3d4e7;
+    transition: 1s;
+}
+.LinkagemHome {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: "Nunito", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+.Carrinho {
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    background-color: #F5DFDF;
+    cursor: pointer;
+}
+.CarrinhoImg {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    cursor: pointer;
+}
+h1 {
+    text-align: center;
+    font-size: 64px;
+    text-shadow: 5px 5px 5px #b4b3b3;
+    color: #ffffff;
+    font-family: "Josefin Sans", sans-serif;
+    cursor: default;
+    margin: 20px 0;
+}
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.resumo {
+    margin-bottom: 40px;
+}
+.resumo h3 {
+    margin: 0 0 10px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    color: #c59696;
+}
+.resumo-cards {
+    display: flex;
+    justify-content: space-evenly;
+}
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #b4b3b3;
+    text-align: center;
+    width: 200px;
+}
+.card p {
+    font-size: 18px;
+    margin: 0;
+    color: #69b486;
+}
+.entregas {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #b4b3b3;
+}
+.entregas h3 {
+    margin: 0 0 20px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    color: #c59696;
+}
+.entrega-card {
+    border-bottom: 1px solid #E0B7B5;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.entrega-card p {
+    margin: 5px 0;
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    color: #333;
+}
+.status-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.status-icon.pendente {
+    background-color: #ffeb3b;
+}
+.status-icon.concluida {
+    background-color: #69b486;
+}
+.status-icon.atrasada {
+    background-color: #a02626;
+}
+.entrega-actions {
+    display: flex;
+    gap: 10px;
+}
+.action-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: "Nunito", sans-serif;
+    color: white;
+}
+.action-button.detalhes {
+    background-color: #E0B7B5;
+}
+.action-button.detalhes:hover {
+    background-color: #b3d4e7;
+    transition: 0.5s;
+}
+.action-button.concluir {
+    background-color: #69b486;
+}
+.action-button.concluir:hover {
+    background-color: #558a6d;
+    transition: 0.5s;
+}
+.action-button.concluir:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.action-button.reportar {
+    background-color: #a02626;
+}
+.action-button.reportar:hover {
+    background-color: #7d1e1e;
+    transition: 0.5s;
+}
+.footer {
+    background-color: #F5DFDF;
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    border-top: solid;
+    border-color: #E0B7B5;
+    width: 100%;
+}
+.footer p {
+    margin: 5px 0;
+}
+.social img {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    cursor: pointer;
+}
+.copy {
+    font-size: 12px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 200;
+    color: #E0B7B5;
+    background-color: #c59696;
+    padding: 5px;
+}
+@media (max-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+        padding: 10px 20px;
+    }
+    .logoimg {
+        width: 70px;
+        height: 70px;
+    }
+    .menu-toggle {
+        display: block;
+        font-size: 28px;
+        cursor: pointer;
+        color: #c59696;
+        background: none;
+        border: none;
+    }
+    .nav-buttons {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .ButtonHome {
+        display: none;
+        width: 100%;
+        margin: 10px 0;
+    }
+    .ButtonHome.active {
+        display: block;
+    }
+    .Carrinho {
+        margin-left: 10px;
+    }
+    .resumo-cards {
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .card {
+        width: 150px;
+    }
+    .entrega-actions {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .action-button {
+        width: 120px;
+    }
+    h1 {
+        font-size: 36px;
+    }
+}
+@media (max-width: 480px) {
+    .logoimg {
+        width: 50px;
+        height: 50px;
+    }
+    .menu-toggle {
+        font-size: 24px;
+    }
+    .Carrinho {
+        font-size: 22px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    .card {
+        width: 120px;
+    }
+    .action-button {
+        width: 100px;
+    }
+}

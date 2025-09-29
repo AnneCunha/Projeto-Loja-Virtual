@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregador - Loja KonaWai</title>
+    <link rel="stylesheet" href="welcome_entregadores.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&family=Josefin+Sans:wght@400;500;600;700&family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="menu-toggle">☰</div>
+
+        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
+
+        <div class="menu">
+            <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Home</a></button>
+            <button class="ButtonHome"><a href="produtos.html" class="LinkagemHome">Produtos</a></button>
+            <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
+            <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Logout</a></button>
+        </div>
+
+        <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
+    </div>
+
+    <h1 id="welcome-message">Olá, Entregador [nome]! Pronto para as entregas de hoje?</h1>
+
+    <div class="dashboard">
+        <div class="resumo">
+            <h3>Resumo do Dia</h3>
+            <div class="resumo-cards">
+                <div class="card">
+                    <p>Total de Entregas: 10</p>
+                </div>
+                <div class="card">
+                    <p>Concluídas: 4</p>
+                </div>
+                <div class="card">
+                    <p>Pendentes: 6</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="entregas">
+            <h3>Próximas Entregas</h3>
+            <div class="entrega-card">
+                <div class="status-icon pendente"></div>
+                <p><strong>Endereço:</strong> Rua das Flores, 123, São Paulo, SP</p>
+                <p><strong>Destinatário:</strong> Ana Costa</p>
+                <p><strong>Horário:</strong> 14:00</p>
+                <p><strong>Status:</strong> Pendente</p>
+                <div class="entrega-actions">
+                    <button class="action-button detalhes">Ver Detalhes</button>
+                    <button class="action-button concluir">Concluir Entrega</button>
+                    <button class="action-button reportar">Reportar Problema</button>
+                </div>
+            </div>
+            <div class="entrega-card">
+                <div class="status-icon concluida"></div>
+                <p><strong>Endereço:</strong> Av. Central, 200, Rio de Janeiro, RJ</p>
+                <p><strong>Destinatário:</strong> Pedro Santos</p>
+                <p><strong>Horário:</strong> 12:30</p>
+                <p><strong>Status:</strong> Concluída</p>
+                <div class="entrega-actions">
+                    <button class="action-button detalhes">Ver Detalhes</button>
+                    <button class="action-button concluir" disabled>Concluir Entrega</button>
+                    <button class="action-button reportar">Reportar Problema</button>
+                </div>
+            </div>
+            <div class="entrega-card">
+                <div class="status-icon atrasada"></div>
+                <p><strong>Endereço:</strong> Rua dos Pinheiros, 300, Belo Horizonte, MG</p>
+                <p><strong>Destinatário:</strong> Maria Oliveira</p>
+                <p><strong>Horário:</strong> 10:00</p>
+                <p><strong>Status:</strong> Atrasada</p>
+                <div class="entrega-actions">
+                    <button class="action-button detalhes">Ver Detalhes</button>
+                    <button class="action-button concluir">Concluir Entrega</button>
+                    <button class="action-button reportar">Reportar Problema</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <h2>Loja KonaWai</h2>
+            <p>Endereço: Rua Caraguatatuba, nº 20</p>
+            <p>CEP: 12565-258</p>
+            <p>Telefone: (12) 3888-6828</p>
+            <div class="social">
+                <a href="https://www.facebook.com" target="_blank"><img src="img/facebook-circle-logo-png.png" alt="Facebook" class="socialimg"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="img/Instagram_icon.png" alt="Instagram" class="socialimg"></a>
+                <a href="https://www.twitter.com" target="_blank"><img src="img/x-icon.png" alt="Twitter" class="socialimg"></a>
+            </div>
+            <div class="copy">
+                <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
+            </div>    
+        </div>
+    </footer>
+
+    <script>
+        // Load user data from URL parameter
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            if (name) {
+                document.getElementById('welcome-message').textContent = `Olá, Entregador ${name}! Pronto para as entregas de hoje?`;
+            }
+        });
+    </script>
+</body>
+</html>

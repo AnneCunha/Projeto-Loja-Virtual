@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja KonaWai | Bem-vindo</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="menu-toggle">☰</div>
+        <div class="menu">
+            <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Home</a></button>
+            <button class="ButtonHome"><a href="produtos.html" class="LinkagemHome">Produtos</a></button>
+            <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
+            <button class="ButtonHome" id="logout">Logout</button>
+            
+        </div>
+        <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
+    </div>
+
+    <h1 id="welcome-message">Olá, [nome]!</h1>
+    
+    <div class="welcome-text">
+        <p>Bem-vindo à Loja KonaWai! Explore nossas novidades e faça sua compra.</p>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <h2>Loja KonaWai</h2>
+            <p>Endereço: Rua Caraguatatuba, nº 20</p>
+            <p>CEP: 12565-258</p>
+            <p>Telefone: (12) 3888-6828</p>
+            <div class="social">
+                <a href="https://www.facebook.com" target="_blank"><img src="img/facebook-circle-logo-png.png" alt="Facebook" class="socialimg"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="img/Instagram_icon.png" alt="Instagram" class="socialimg"></a>
+                <a href="https://www.twitter.com" target="_blank"><img src="img/x-icon.png" alt="Twitter" class="socialimg"></a>
+            </div>
+            <div class="copy">
+                <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load user data from sessionStorage and URL parameter
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            if (name) {
+                document.getElementById('welcome-message').textContent = `Olá, ${name}!`;
+            } else {
+                const user = JSON.parse(sessionStorage.getItem('user'));
+                if (user && user.role === 'Cliente' && user.name) {
+                    document.getElementById('welcome-message').textContent = `Olá, ${user.name}!`;
+                }
+            }
+
+            // Handle logout
+            document.getElementById('logout').addEventListener('click', () => {
+                sessionStorage.removeItem('user');
+                window.location.href = 'home.html';
+            });
+
+            // Menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const buttons = document.querySelectorAll('.ButtonHome');
+            menuToggle.addEventListener('click', () => {
+                buttons.forEach(btn => btn.classList.toggle('active'));
+            });
+        });
+    </script>
+</body>
+</html>
