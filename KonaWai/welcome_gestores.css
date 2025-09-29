@@ -2,11 +2,13 @@ html {
     font-family: "Nunito", sans-serif;
     background-color: #E3DADA;
 }
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 .header {
     background-color: #F5DFDF;
     padding: 20px;
@@ -18,6 +20,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .logoimg {
     width: 100px;
     height: 100px;
@@ -25,6 +28,7 @@ body {
     border-style: solid;
     border-color: #E0B7B5;
 }
+
 .ButtonHome {
     background-color: #E0B7B5;
     border: none;
@@ -38,10 +42,12 @@ body {
     border-radius: 5px;
     box-shadow: 5px 5px 5px #b4b3b3;
 }
+
 .ButtonHome:hover {
     background-color: #b3d4e7;
     transition: 1s;
 }
+
 .LinkagemHome {
     text-decoration: none;
     color: #ffffff;
@@ -49,6 +55,7 @@ body {
     font-weight: 300;
     font-size: 18px;
 }
+
 .Carrinho {
     width: 50px;
     height: 50px;
@@ -56,12 +63,14 @@ body {
     background-color: #F5DFDF;
     cursor: pointer;
 }
+
 .CarrinhoImg {
     width: 50px;
     height: 50px;
     margin: 0;
     cursor: pointer;
 }
+
 h1 {
     text-align: center;
     font-size: 64px;
@@ -71,16 +80,19 @@ h1 {
     cursor: default;
     margin: 20px 0;
 }
+
 .dashboard {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
+
 .cards {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 40px;
 }
+
 .card {
     background-color: #ffffff;
     padding: 20px;
@@ -89,17 +101,20 @@ h1 {
     text-align: center;
     width: 200px;
 }
+
 .card h3 {
     margin: 0 0 10px;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
     color: #c59696;
 }
+
 .card p {
     font-size: 24px;
     margin: 0;
     color: #69b486;
 }
+
 .alertas {
     background-color: #ffffff;
     padding: 20px;
@@ -107,26 +122,31 @@ h1 {
     box-shadow: 5px 5px 5px #b4b3b3;
     margin-bottom: 40px;
 }
+
 .alertas h3 {
     margin: 0 0 10px;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
     color: #c59696;
 }
+
 .alertas ul {
     list-style: none;
     padding: 0;
 }
+
 .alertas li {
     margin-bottom: 10px;
     font-family: "Nunito", sans-serif;
     font-weight: 400;
     color: #333;
 }
+
 .actions {
     display: flex;
     justify-content: space-evenly;
 }
+
 .action-button {
     background-color: #69b486;
     border: none;
@@ -137,11 +157,14 @@ h1 {
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 5px 5px 5px #b4b3b3;
+    font-family: "Nunito", sans-serif;
 }
+
 .action-button:hover {
     background-color: #558a6d;
     transition: 0.5s;
 }
+
 .footer {
     background-color: #F5DFDF;
     padding: 20px;
@@ -151,15 +174,18 @@ h1 {
     border-color: #E0B7B5;
     width: 100%;
 }
+
 .footer p {
     margin: 5px 0;
 }
+
 .social img {
     width: 30px;
     height: 30px;
     margin: 10px;
     cursor: pointer;
 }
+
 .copy {
     font-size: 12px;
     font-family: "Nunito", sans-serif;
@@ -168,6 +194,215 @@ h1 {
     background-color: #c59696;
     padding: 5px;
 }
+
+/* Estilos do Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    margin: 50px auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 10px;
+    overflow: auto;
+    max-height: 90%;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    color: #c59696;
+    font-family: "Nunito", sans-serif;
+    margin-top: 0;
+}
+
+.close-modal {
+    float: right;
+    cursor: pointer;
+    font-size: 28px;
+    color: #c59696;
+    font-weight: bold;
+}
+
+.close-modal:hover {
+    color: #a06e6e;
+}
+
+/* Controles da Tabela */
+.table-controls {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.table-controls label {
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    color: #c59696;
+}
+
+.table-controls select {
+    padding: 10px;
+    border: 2px solid #E0B7B5;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+/* Estilos da Tabela */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 5px #b4b3b3;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.data-table thead {
+    background-color: #c59696;
+    color: white;
+}
+
+.data-table th {
+    padding: 15px;
+    text-align: left;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+}
+
+.data-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #E0B7B5;
+    font-family: "Nunito", sans-serif;
+}
+
+.data-table tbody tr:hover {
+    background-color: #F5DFDF;
+}
+
+/* Células editáveis */
+.data-table td[contenteditable="true"] {
+    min-width: 80px;
+    white-space: pre-wrap;
+    cursor: text;
+}
+
+.data-table td.editable-active {
+    background-color: #fffef8;
+    outline: 1px solid #69b486;
+}
+
+.data-table td[contenteditable="true"]:focus {
+    outline: 2px solid #69b486;
+    background-color: #ffffff;
+}
+
+/* Células não editáveis */
+.not-editable {
+    background-color: #f0f0f0 !important;
+    color: #666;
+    user-select: none;
+}
+
+/* Linha em edição */
+.editing-row {
+    background-color: #fffbe6 !important;
+}
+
+.editing-row:hover {
+    background-color: #fffbe6 !important;
+}
+
+.new-row {
+    background-color: #e6f7ff !important;
+}
+
+/* Botões da Tabela */
+.action-buttons {
+    white-space: nowrap;
+}
+
+.table-button {
+    background-color: #69b486;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    margin: 2px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #b4b3b3;
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+}
+
+.table-button:hover {
+    background-color: #558a6d;
+}
+
+.table-button.edit {
+    background-color: #b3d4e7;
+}
+
+.table-button.edit:hover {
+    background-color: #8ab8d4;
+}
+
+.table-button.delete {
+    background-color: #c59696;
+}
+
+.table-button.delete:hover {
+    background-color: #a06e6e;
+}
+
+.table-button.cancel {
+    background-color: #d4a373;
+}
+
+.table-button.cancel:hover {
+    background-color: #b8864f;
+}
+
+.table-button.add {
+    background-color: #E0B7B5;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.table-button.add:hover {
+    background-color: #c59696;
+}
+
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.update-info {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
     .header {
         flex-direction: row;
@@ -176,10 +411,12 @@ h1 {
         font-size: 24px;
         padding: 10px 20px;
     }
+    
     .logoimg {
         width: 70px;
         height: 70px;
     }
+    
     .menu-toggle {
         display: block;
         font-size: 28px;
@@ -188,60 +425,91 @@ h1 {
         background: none;
         border: none;
     }
+    
     .nav-buttons {
         display: none;
         flex-direction: column;
         width: 100%;
     }
+    
     .ButtonHome {
         display: none;
         width: 100%;
         margin: 10px 0;
     }
+    
     .ButtonHome.active {
         display: block;
     }
+    
     .Carrinho {
         margin-left: 10px;
     }
+    
     .cards {
         flex-wrap: wrap;
         gap: 20px;
         justify-content: center;
     }
+    
     .card {
         width: 150px;
     }
+    
     .actions {
         flex-wrap: wrap;
         gap: 10px;
         justify-content: center;
     }
+    
     .action-button {
         width: 150px;
     }
+    
     h1 {
         font-size: 36px;
     }
+    
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+    
+    .table-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
+
 @media (max-width: 480px) {
     .logoimg {
         width: 50px;
         height: 50px;
     }
+    
     .menu-toggle {
         font-size: 24px;
     }
+    
     .Carrinho {
         font-size: 22px;
     }
+    
     h1 {
         font-size: 28px;
     }
+    
     .card {
         width: 120px;
     }
+    
     .action-button {
         width: 120px;
+    }
+    
+    .table-button {
+        padding: 6px 10px;
+        font-size: 12px;
     }
 }

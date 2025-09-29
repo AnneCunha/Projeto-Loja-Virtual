@@ -1,90 +1,403 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor - Loja KonaWai</title>
-    <link rel="stylesheet" href="welcome_gestores.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&family=Josefin+Sans:wght@400;500;600;700&family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor - Loja KonaWai</title>
+  <link rel="stylesheet" href="welcome_gestores.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&family=Josefin+Sans:wght@400;500;600;700&family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="menu-toggle">☰</div>
+  <div class="header">
+      <div class="menu-toggle">☰</div>
+      <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
+      <div class="menu">
+          <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Home</a></button>
+          <button class="ButtonHome"><a href="produtos.html" class="LinkagemHome">Produtos</a></button>
+          <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
+          <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Logout</a></button>
+      </div>
+      <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
+  </div>
 
-        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
+  <h1 id="welcome-message">Olá, Gestor! Tudo pronto para a gestão!</h1>
 
-        <div class="menu">
-            <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Home</a></button>
-            <button class="ButtonHome"><a href="produtos.html" class="LinkagemHome">Produtos</a></button>
-            <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
-            <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Logout</a></button>
-        </div>
+  <div class="dashboard">
+      <div class="cards">
+          <div class="card"><h3>Total de Entregas</h3><p>150</p></div>
+          <div class="card"><h3>Entregadores Ativos</h3><p>10</p></div>
+          <div class="card"><h3>Problemas Reportados</h3><p>3</p></div>
+      </div>
 
-        <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
+      <div class="alertas">
+          <h3>Notificações Recentes</h3>
+          <ul>
+              <li>Entrega #123 atrasada - Endereço incorreto (10:30)</li>
+              <li>Entregador João Silva reportou problema (09:45)</li>
+              <li>Novo relatório disponível (08:00)</li>
+          </ul>
+      </div>
+
+      <div class="actions">
+          <button class="action-button"><a class="LinkagemHome" href="#">Entregas</a></button>
+          <button class="action-button"><a class="LinkagemHome" href="#">Entregadores</a></button>
+          <button class="action-button"><a class="LinkagemHome" href="#">Relatórios</a></button>
+          <button class="action-button"><a class="LinkagemHome" href="#">Notificações</a></button>
+          <button class="action-button"><a class="LinkagemHome" href="#">Configuração</a></button>
+      </div>
+
+      <div style="text-align:center; margin:40px 0;">
+        <button id="editTablesBtn" class="action-button">Editar Tabelas</button>
+      </div>
+  </div>
+
+  <!-- Modal das Tabelas -->
+  <div id="tablesModal" class="modal">
+    <div class="modal-content">
+      <span id="closeTablesModal" class="close-modal">&times;</span>
+      <h2>Gerenciar Tabelas</h2>
+      
+      <div class="table-controls">
+        <label for="tableSelect">Escolha a tabela:</label>
+        <select id="tableSelect">
+          <option value="entregadores">Entregadores</option>
+          <option value="gestores">Gestores</option>
+          <option value="usuarios">Usuários</option>
+        </select>
+        <button id="loadTableBtn" class="action-button">Carregar</button>
+      </div>
+      
+      <div id="tableContainer" class="table-container"></div>
+      <div id="updateInfo" class="update-info"></div>
     </div>
+  </div>
 
-    <h1 id="welcome-message">Olá, Gestor [nome]! Tudo pronto para a gestão!</h1>
-
-    <div class="dashboard">
-        <div class="cards">
-            <div class="card">
-                <h3>Total de Entregas</h3>
-                <p>150</p>
-            </div>
-            <div class="card">
-                <h3>Entregadores Ativos</h3>
-                <p>10</p>
-            </div>
-            <div class="card">
-                <h3>Problemas Reportados</h3>
-                <p>3</p>
-            </div>
-        </div>
-
-        <div class="alertas">
-            <h3>Notificações Recentes</h3>
-            <ul>
-                <li>Entrega #123 atrasada - Endereço incorreto (10:30)</li>
-                <li>Entregador João Silva reportou problema (09:45)</li>
-                <li>Novo relatório disponível (08:00)</li>
-            </ul>
-        </div>
-
-        <div class="actions">
-            <button class="action-button"><a class="LinkagemHome" href="#">Entregas</a></button>
-            <button class="action-button"><a class="LinkagemHome" href="#">Entregadores</a></button>
-            <button class="action-button"><a class="LinkagemHome" href="#">Relatórios</a></button>
-            <button class="action-button"><a class="LinkagemHome" href="#">Notificações</a></button>
-            <button class="action-button"><a class="LinkagemHome" href="#">Configuração</a></button>
-        </div>
+  <footer>
+    <div class="footer">
+      <h2>Loja KonaWai</h2>
+      <p>Endereço: Rua Caraguatatuba, nº 20</p>
+      <p>CEP: 12565-258</p>
+      <p>Telefone: (12) 3888-6828</p>
+      <div class="social">
+          <a href="https://www.facebook.com" target="_blank"><img src="img/facebook-circle-logo-png.png" alt="Facebook" class="socialimg"></a>
+          <a href="https://www.instagram.com" target="_blank"><img src="img/Instagram_icon.png" alt="Instagram" class="socialimg"></a>
+          <a href="https://www.twitter.com" target="_blank"><img src="img/x-icon.png" alt="Twitter" class="socialimg"></a>
+      </div>
+      <div class="copy">
+          <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
+      </div>    
     </div>
+  </footer>
 
-    <footer>
-        <div class="footer">
-            <h2>Loja KonaWai</h2>
-            <p>Endereço: Rua Caraguatatuba, nº 20</p>
-            <p>CEP: 12565-258</p>
-            <p>Telefone: (12) 3888-6828</p>
-            <div class="social">
-                <a href="https://www.facebook.com" target="_blank"><img src="img/facebook-circle-logo-png.png" alt="Facebook" class="socialimg"></a>
-                <a href="https://www.instagram.com" target="_blank"><img src="img/Instagram_icon.png" alt="Instagram" class="socialimg"></a>
-                <a href="https://www.twitter.com" target="_blank"><img src="img/x-icon.png" alt="Twitter" class="socialimg"></a>
-            </div>
-            <div class="copy">
-                <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
-            </div>    
-        </div>
-    </footer>
+  <script>
+    // Configuração do Supabase
+    const SUPABASE_URL = 'https://xrljgcfoqdasdblbnvkz.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhybGpnY2ZvcWRhc2RibGJudmt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MzEyNjAsImV4cCI6MjA3MzAwNzI2MH0.6oVGMEBEHgFXx29KSdDUB28G0-1jFvY7VGFLeHDDnMc';
+    const { createClient } = supabase;
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    <script>
-        // Load user data from URL parameter
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const name = urlParams.get('name');
-            if (name) {
-                document.getElementById('welcome-message').textContent = `Olá, Gestor ${name}! Tudo pronto para a gestão!`;
-            }
+    let currentTable = '';
+    let autoUpdateInterval = null;
+    let editingRows = new Map(); // Guarda IDs e dados das linhas em edição
+    let newRowData = null; // Guarda dados da nova linha sendo criada
+
+    // Bem-vindo personalizado
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name');
+      if (name) {
+          document.getElementById('welcome-message').textContent = `Olá, Gestor ${name}! Tudo pronto para a gestão!`;
+      }
+    });
+
+    // Modal
+    const editBtn = document.getElementById('editTablesBtn');
+    const modal = document.getElementById('tablesModal');
+    const closeModal = document.getElementById('closeTablesModal');
+    const loadBtn = document.getElementById('loadTableBtn');
+    const tableContainer = document.getElementById('tableContainer');
+    const updateInfo = document.getElementById('updateInfo');
+
+    editBtn.onclick = () => modal.style.display = 'block';
+    closeModal.onclick = () => {
+      modal.style.display = 'none';
+      if (autoUpdateInterval) {
+        clearInterval(autoUpdateInterval);
+        autoUpdateInterval = null;
+      }
+      editingRows.clear();
+      newRowData = null;
+    };
+    window.onclick = e => { 
+      if(e.target == modal) {
+        modal.style.display = 'none';
+        if (autoUpdateInterval) {
+          clearInterval(autoUpdateInterval);
+          autoUpdateInterval = null;
+        }
+        editingRows.clear();
+        newRowData = null;
+      }
+    };
+
+    // Carregar tabela com ordenação por ID
+    loadBtn.onclick = async () => {
+      currentTable = document.getElementById('tableSelect').value;
+      await loadTable();
+      
+      // Iniciar atualização automática a cada 30 segundos
+      if (autoUpdateInterval) {
+        clearInterval(autoUpdateInterval);
+      }
+      autoUpdateInterval = setInterval(loadTable, 30000);
+    };
+
+    async function loadTable() {
+      const { data, error } = await supabaseClient
+        .from(currentTable)
+        .select('*')
+        .order('id', { ascending: true });
+      
+      if (error) {
+        tableContainer.innerHTML = `<p style="color:red;">Erro ao carregar: ${error.message}</p>`;
+        return;
+      }
+      
+      renderTable(currentTable, data);
+      updateLastUpdate();
+    }
+
+    function updateLastUpdate() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('pt-BR');
+      updateInfo.textContent = `Última atualização: ${timeStr}`;
+    }
+
+    // Salvar dados de linhas em edição antes de re-renderizar
+    function saveEditingState() {
+      // Salvar linhas existentes em edição
+      editingRows.forEach((_, id) => {
+        const rowEl = tableContainer.querySelector(`tr[data-id="${id}"]`);
+        if (rowEl) {
+          const editableCells = rowEl.querySelectorAll('td[contenteditable="true"]');
+          const rowData = {};
+          editableCells.forEach(cell => {
+            const column = cell.getAttribute('data-column');
+            rowData[column] = cell.innerText;
+          });
+          editingRows.set(id, rowData);
+        }
+      });
+
+      // Salvar nova linha
+      const newRowEl = tableContainer.querySelector(`tr[data-id="new"]`);
+      if (newRowEl) {
+        const editableCells = newRowEl.querySelectorAll('td[contenteditable="true"]');
+        const rowData = {};
+        editableCells.forEach(cell => {
+          const column = cell.getAttribute('data-column');
+          rowData[column] = cell.innerText;
         });
-    </script>
+        newRowData = rowData;
+      }
+    }
+
+    function renderTable(tableName, rows) {
+      // Salvar estado antes de re-renderizar
+      saveEditingState();
+
+      const columns = rows && rows.length > 0 ? Object.keys(rows[0]) : ["id","nome","login","senha","cadastro"];
+      
+      let html = `<table class="data-table">
+        <thead><tr>${columns.map(c=>`<th>${c}</th>`).join('')}<th>Ações</th></tr></thead>
+        <tbody>`;
+      
+      if (rows && rows.length > 0) {
+        rows.forEach(row => {
+          const isEditing = editingRows.has(row.id);
+          const savedData = editingRows.get(row.id);
+          
+          html += `<tr data-id="${row.id}" class="${isEditing ? 'editing-row' : ''}">`;
+          columns.forEach(c => {
+            if(c === "id" || c === "cadastro") {
+              html += `<td class="not-editable">${row[c] ?? ""}</td>`;
+            } else {
+              const editable = isEditing ? 'true' : 'false';
+              // Se estiver editando e há dados salvos, usa os dados salvos
+              const value = isEditing && savedData && savedData[c] !== undefined 
+                ? savedData[c] 
+                : (row[c] ?? "");
+              html += `<td contenteditable="${editable}" data-column="${c}" class="${isEditing ? 'editable-active' : ''}">${value}</td>`;
+            }
+          });
+          
+          if (isEditing) {
+            html += `<td class="action-buttons">
+              <button class="table-button" onclick="saveRow(${row.id})">Salvar</button>
+              <button class="table-button cancel" onclick="cancelEdit(${row.id})">Cancelar</button>
+            </td>`;
+          } else {
+            html += `<td class="action-buttons">
+              <button class="table-button edit" onclick="editRow(${row.id})">Editar</button>
+              <button class="table-button delete" onclick="deleteRow(${row.id})">Apagar</button>
+            </td>`;
+          }
+          
+          html += `</tr>`;
+        });
+      }
+      
+      // Linha de adição (se estiver sendo criada)
+      if (newRowData !== null) {
+        html += `<tr data-id="new" class="editing-row new-row">`;
+        columns.forEach(c => {
+          if(c === "id" || c === "cadastro") {
+            html += `<td class="not-editable">(auto)</td>`;
+          } else {
+            const value = newRowData[c] || "";
+            html += `<td contenteditable="true" data-column="${c}" class="editable-active">${value}</td>`;
+          }
+        });
+        html += `<td class="action-buttons">
+          <button class="table-button" onclick="saveNewRow()">Salvar</button>
+          <button class="table-button cancel" onclick="cancelNewRow()">Cancelar</button>
+        </td></tr>`;
+      }
+      
+      html += `</tbody></table>`;
+      
+      // Botão adicionar só aparece se não há linha nova sendo criada
+      if (newRowData === null) {
+        html += `<button class="table-button add" onclick="addRow()">Adicionar Novo</button>`;
+      }
+      
+      tableContainer.innerHTML = html;
+    }
+
+    // Modo de edição
+    window.editRow = (id) => {
+      editingRows.set(id, {});
+      renderTableWithCurrentData();
+    };
+
+    window.cancelEdit = (id) => {
+      editingRows.delete(id);
+      loadTable();
+    };
+
+    // Adicionar nova linha
+    window.addRow = () => {
+      // Obter colunas da tabela atual
+      const firstRow = tableContainer.querySelector('tr[data-id]');
+      if (firstRow) {
+        const columns = Array.from(firstRow.querySelectorAll('td[data-column]')).map(td => td.getAttribute('data-column'));
+        newRowData = {};
+        columns.forEach(col => {
+          newRowData[col] = "";
+        });
+      } else {
+        newRowData = {};
+      }
+      renderTableWithCurrentData();
+    };
+
+    window.cancelNewRow = () => {
+      newRowData = null;
+      renderTableWithCurrentData();
+    };
+
+    // Renderizar tabela mantendo dados atuais (sem recarregar do banco)
+    async function renderTableWithCurrentData() {
+      const { data } = await supabaseClient
+        .from(currentTable)
+        .select('*')
+        .order('id', { ascending: true });
+      
+      if (data) {
+        renderTable(currentTable, data);
+      }
+    }
+
+    // Salvar linha editada
+    window.saveRow = async (id) => {
+      const rowEl = tableContainer.querySelector(`tr[data-id="${id}"]`);
+      const editableCells = rowEl.querySelectorAll('td[contenteditable="true"]');
+      
+      let updateObj = {};
+      editableCells.forEach(cell => {
+        const column = cell.getAttribute('data-column');
+        const value = cell.innerText.trim();
+        updateObj[column] = value;
+      });
+
+      const { error } = await supabaseClient
+        .from(currentTable)
+        .update(updateObj)
+        .eq('id', id);
+      
+      if(error) {
+        alert("Erro ao atualizar: " + error.message);
+      } else {
+        alert("Registro atualizado com sucesso!");
+        editingRows.delete(id);
+        await loadTable();
+      }
+    };
+
+    // Salvar nova linha
+    window.saveNewRow = async () => {
+      const rowEl = tableContainer.querySelector(`tr[data-id="new"]`);
+      const editableCells = rowEl.querySelectorAll('td[contenteditable="true"]');
+      
+      let newObj = {};
+      editableCells.forEach(cell => {
+        const column = cell.getAttribute('data-column');
+        const value = cell.innerText.trim();
+        newObj[column] = value;
+      });
+
+      // Gerar timestamp no formato texto brasileiro
+      const now = new Date();
+      const dia = String(now.getDate()).padStart(2, '0');
+      const mes = String(now.getMonth() + 1).padStart(2, '0');
+      const ano = now.getFullYear();
+      const hora = String(now.getHours()).padStart(2, '0');
+      const minuto = String(now.getMinutes()).padStart(2, '0');
+      const segundo = String(now.getSeconds()).padStart(2, '0');
+      
+      newObj.cadastro = `${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
+
+      const { data, error } = await supabaseClient
+        .from(currentTable)
+        .insert([newObj])
+        .select();
+      
+      if(error) {
+        alert("Erro ao salvar: " + error.message);
+      } else {
+        alert("Novo registro salvo com sucesso!");
+        newRowData = null;
+        await loadTable();
+      }
+    };
+
+    // Apagar registro
+    window.deleteRow = async (id) => {
+      if(!confirm("Tem certeza que deseja apagar este registro?")) return;
+      
+      const { error } = await supabaseClient
+        .from(currentTable)
+        .delete()
+        .eq('id', id);
+      
+      if(error) {
+        alert("Erro ao apagar: " + error.message);
+      } else {
+        alert("Registro apagado com sucesso!");
+        await loadTable();
+      }
+    };
+  </script>
 </body>
 </html>
