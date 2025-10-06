@@ -7,6 +7,62 @@
   <link rel="stylesheet" href="welcome_gestores.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&family=Josefin+Sans:wght@400;500;600;700&family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    /* Estilos para o container da busca */
+    .global-search-container {
+      margin: 15px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .global-search-container input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #globalSearchResults {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 10px;
+    }
+    .search-result-item {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+    .search-result-item:hover {
+      background-color: #f0f0f0;
+    }
+    .search-result-item small {
+      display: block;
+      color: #666;
+    }
+    
+    /* Estilos para o Modal de Colunas */
+    .column-modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+    #columnSelector {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    #columnSelector label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
 </head>
 <body>
   <div class="header">
@@ -52,12 +108,16 @@
       </div>
   </div>
 
-  <!-- Modal das Tabelas -->
   <div id="tablesModal" class="modal">
     <div class="modal-content">
       <span id="closeTablesModal" class="close-modal">&times;</span>
       <h2>Gerenciar Tabelas</h2>
       
+      <div class="global-search-container">
+        <label for="globalSearchInput">Busca Global (em entregadores, gestores e usuários):</label>
+        <input type="text" id="globalSearchInput" placeholder="Digite para buscar em todas as tabelas...">
+        <div id="globalSearchResults"></div>
+      </div>
       <div class="table-controls">
         <label for="tableSelect">Escolha a tabela:</label>
         <select id="tableSelect">
@@ -66,13 +126,22 @@
           <option value="usuarios">Usuários</option>
         </select>
         <button id="loadTableBtn" class="action-button">Carregar</button>
-      </div>
+        <button id="openColumnModalBtn" class="action-button" style="display:none;">Personalizar Colunas</button>
+        </div>
       
       <div id="tableContainer" class="table-container"></div>
       <div id="updateInfo" class="update-info"></div>
     </div>
   </div>
 
+  <div id="columnModal" class="modal">
+    <div class="column-modal-content">
+      <span id="closeColumnModal" class="close-modal">&times;</span>
+      <h2>Selecione as Colunas para Exibir</h2>
+      <div id="columnSelector"></div>
+      <button id="applyColumnsBtn" class="action-button">Aplicar</button>
+    </div>
+  </div>
   <footer>
     <div class="footer">
       <h2>Loja KonaWai</h2>
@@ -90,314 +159,478 @@
     </div>
   </footer>
 
-  <script>
-    // Configuração do Supabase
-    const SUPABASE_URL = 'https://xrljgcfoqdasdblbnvkz.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhybGpnY2ZvcWRhc2RibGJudmt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MzEyNjAsImV4cCI6MjA3MzAwNzI2MH0.6oVGMEBEHgFXx29KSdDUB28G0-1jFvY7VGFLeHDDnMc';
-    const { createClient } = supabase;
-    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+<script>
+const SUPABASE_URL = 'https://xrljgcfoqdasdblbnvkz.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhybGpnY2ZvcWRhc2RibGJudmt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MzEyNjAsImV4cCI6MjA3MzAwNzI2MH0.6oVGMEBEHgFXx29KSdDUB28G0-1jFvY7VGFLeHDDnMc';
+const { createClient } = supabase;
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    let currentTable = '';
-    let autoUpdateInterval = null;
-    let editingRows = new Map(); // Guarda IDs e dados das linhas em edição
-    let newRowData = null; // Guarda dados da nova linha sendo criada
+let currentTable = '';
+let autoUpdateInterval = null;
+let editingRows = new Map();
+let newRowData = null;
+let searchTerm = '';
 
-    // Bem-vindo personalizado
-    document.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const name = urlParams.get('name');
-      if (name) {
-          document.getElementById('welcome-message').textContent = `Olá, Gestor ${name}! Tudo pronto para a gestão!`;
+// Bem-vindo personalizado
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const name = urlParams.get('name');
+  if (name) {
+      document.getElementById('welcome-message').textContent = `Olá, Gestor ${name}! Tudo pronto para a gestão!`;
+  }
+});
+
+// Modal
+const editBtn = document.getElementById('editTablesBtn');
+const modal = document.getElementById('tablesModal');
+const closeModal = document.getElementById('closeTablesModal');
+const loadBtn = document.getElementById('loadTableBtn');
+const tableContainer = document.getElementById('tableContainer');
+const updateInfo = document.getElementById('updateInfo');
+
+editBtn.onclick = () => modal.style.display = 'block';
+closeModal.onclick = () => {
+  modal.style.display = 'none';
+  if (autoUpdateInterval) {
+    clearInterval(autoUpdateInterval);
+    autoUpdateInterval = null;
+  }
+  editingRows.clear();
+  newRowData = null;
+  searchTerm = '';
+};
+window.onclick = e => { 
+  if(e.target == modal) {
+    modal.style.display = 'none';
+    if (autoUpdateInterval) {
+      clearInterval(autoUpdateInterval);
+      autoUpdateInterval = null;
+    }
+    editingRows.clear();
+    newRowData = null;
+    searchTerm = '';
+  }
+};
+
+// Carregar tabela com ordenação por ID
+loadBtn.onclick = async () => {
+  currentTable = document.getElementById('tableSelect').value;
+  searchTerm = '';
+  await loadTable();
+  
+  if (autoUpdateInterval) {
+    clearInterval(autoUpdateInterval);
+  }
+  autoUpdateInterval = setInterval(loadTable, 30000);
+};
+
+async function loadTable() {
+  const { data, error } = await supabaseClient
+    .from(currentTable)
+    .select('*')
+    .order('id', { ascending: true });
+  
+  if (error) {
+    tableContainer.innerHTML = `<p style="color:red;">Erro ao carregar: ${error.message}</p>`;
+    return;
+  }
+  
+  renderTable(currentTable, data);
+  updateLastUpdate();
+}
+
+function updateLastUpdate() {
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString('pt-BR');
+  updateInfo.textContent = `Última atualização: ${timeStr}`;
+}
+
+function saveEditingState() {
+  editingRows.forEach((_, id) => {
+    const rowEl = tableContainer.querySelector(`tr[data-id="${id}"]`);
+    if (rowEl) {
+      const editableCells = rowEl.querySelectorAll('td[contenteditable="true"]');
+      const rowData = {};
+      editableCells.forEach(cell => {
+        const column = cell.getAttribute('data-column');
+        rowData[column] = cell.innerText;
+      });
+      editingRows.set(id, rowData);
+    }
+  });
+
+  const newRowEl = tableContainer.querySelector(`tr[data-id="new"]`);
+  if (newRowEl) {
+    const editableCells = newRowEl.querySelectorAll('td[contenteditable="true"]');
+    const rowData = {};
+    editableCells.forEach(cell => {
+      const column = cell.getAttribute('data-column');
+      rowData[column] = cell.innerText;
+    });
+    newRowData = rowData;
+  }
+}
+
+function renderTable(tableName, rows) {
+  saveEditingState();
+
+  const columns = rows && rows.length > 0 ? Object.keys(rows[0]) : ["id","nome","login","senha","cadastro"];
+  
+  // Campo de busca global
+  let html = `
+    <div class="search-container" style="margin-bottom: 15px;">
+      <input type="text" id="globalSearch" placeholder="Buscar em todas as tabelas..." 
+        style="width: 70%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+      <button class="table-button" onclick="performGlobalSearch()" 
+        style="padding: 8px 16px; margin-left: 10px;">Buscar</button>
+      <button class="table-button cancel" onclick="clearSearch()" 
+        style="padding: 8px 16px; margin-left: 5px;">Limpar</button>
+    </div>
+  `;
+  
+  // Seleção de colunas
+  html += `
+    <div class="column-selector" style="margin-bottom: 15px; padding: 10px; background-color: #f5f5f5; border-radius: 4px;">
+      <strong>Selecionar colunas para exibir:</strong><br>
+      <div style="margin-top: 8px;">
+        ${columns.map(col => `
+          <label style="margin-right: 15px; display: inline-block;">
+            <input type="checkbox" class="column-checkbox" value="${col}" checked onchange="toggleColumn('${col}')">
+            ${col}
+          </label>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  
+  // Aplicar filtro se houver termo de busca
+  let filteredRows = rows;
+  if (searchTerm && rows) {
+    filteredRows = rows.filter(row => {
+      return columns.some(col => {
+        const value = String(row[col] || '').toLowerCase();
+        return value.includes(searchTerm.toLowerCase());
+      });
+    });
+  }
+  
+  html += `<table class="data-table">
+    <thead><tr>${columns.map(c=>`<th class="col-${c}">${c}</th>`).join('')}<th>Ações</th></tr></thead>
+    <tbody>`;
+  
+  if (filteredRows && filteredRows.length > 0) {
+    filteredRows.forEach(row => {
+      const isEditing = editingRows.has(row.id);
+      const savedData = editingRows.get(row.id);
+      
+      html += `<tr data-id="${row.id}" class="${isEditing ? 'editing-row' : ''}">`;
+      columns.forEach(c => {
+        if(c === "id" || c === "cadastro") {
+          html += `<td class="not-editable col-${c}">${row[c] ?? ""}</td>`;
+        } else {
+          const editable = isEditing ? 'true' : 'false';
+          const value = isEditing && savedData && savedData[c] !== undefined 
+            ? savedData[c] 
+            : (row[c] ?? "");
+          html += `<td contenteditable="${editable}" data-column="${c}" class="${isEditing ? 'editable-active' : ''} col-${c}">${value}</td>`;
+        }
+      });
+      
+      if (isEditing) {
+        html += `<td class="action-buttons">
+          <button class="table-button" onclick="saveRow(${row.id})">Salvar</button>
+          <button class="table-button cancel" onclick="cancelEdit(${row.id})">Cancelar</button>
+        </td>`;
+      } else {
+        html += `<td class="action-buttons">
+          <button class="table-button edit" onclick="editRow(${row.id})">Editar</button>
+          <button class="table-button delete" onclick="deleteRow(${row.id})">Apagar</button>
+        </td>`;
+      }
+      
+      html += `</tr>`;
+    });
+  } else if (searchTerm) {
+    html += `<tr><td colspan="${columns.length + 1}" style="text-align: center; padding: 20px;">
+      Nenhum resultado encontrado para "${searchTerm}"
+    </td></tr>`;
+  }
+  
+  if (newRowData !== null) {
+    html += `<tr data-id="new" class="editing-row new-row">`;
+    columns.forEach(c => {
+      if(c === "id" || c === "cadastro") {
+        html += `<td class="not-editable col-${c}">(auto)</td>`;
+      } else {
+        const value = newRowData[c] || "";
+        html += `<td contenteditable="true" data-column="${c}" class="editable-active col-${c}">${value}</td>`;
       }
     });
-
-    // Modal
-    const editBtn = document.getElementById('editTablesBtn');
-    const modal = document.getElementById('tablesModal');
-    const closeModal = document.getElementById('closeTablesModal');
-    const loadBtn = document.getElementById('loadTableBtn');
-    const tableContainer = document.getElementById('tableContainer');
-    const updateInfo = document.getElementById('updateInfo');
-
-    editBtn.onclick = () => modal.style.display = 'block';
-    closeModal.onclick = () => {
-      modal.style.display = 'none';
-      if (autoUpdateInterval) {
-        clearInterval(autoUpdateInterval);
-        autoUpdateInterval = null;
+    html += `<td class="action-buttons">
+      <button class="table-button" onclick="saveNewRow()">Salvar</button>
+      <button class="table-button cancel" onclick="cancelNewRow()">Cancelar</button>
+    </td></tr>`;
+  }
+  
+  html += `</tbody></table>`;
+  
+  if (newRowData === null) {
+    html += `<button class="table-button add" onclick="addRow()">Adicionar Novo</button>`;
+  }
+  
+  tableContainer.innerHTML = html;
+  
+  // Restaurar valor do campo de busca
+  const searchInput = document.getElementById('globalSearch');
+  if (searchInput) {
+    searchInput.value = searchTerm;
+    // Adicionar evento Enter para buscar
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        performGlobalSearch();
       }
-      editingRows.clear();
-      newRowData = null;
-    };
-    window.onclick = e => { 
-      if(e.target == modal) {
-        modal.style.display = 'none';
-        if (autoUpdateInterval) {
-          clearInterval(autoUpdateInterval);
-          autoUpdateInterval = null;
-        }
-        editingRows.clear();
-        newRowData = null;
-      }
-    };
+    });
+  }
+}
 
-    // Carregar tabela com ordenação por ID
-    loadBtn.onclick = async () => {
-      currentTable = document.getElementById('tableSelect').value;
-      await loadTable();
-      
-      // Iniciar atualização automática a cada 30 segundos
-      if (autoUpdateInterval) {
-        clearInterval(autoUpdateInterval);
-      }
-      autoUpdateInterval = setInterval(loadTable, 30000);
-    };
-
-    async function loadTable() {
-      const { data, error } = await supabaseClient
-        .from(currentTable)
-        .select('*')
-        .order('id', { ascending: true });
-      
-      if (error) {
-        tableContainer.innerHTML = `<p style="color:red;">Erro ao carregar: ${error.message}</p>`;
-        return;
-      }
-      
-      renderTable(currentTable, data);
-      updateLastUpdate();
-    }
-
-    function updateLastUpdate() {
-      const now = new Date();
-      const timeStr = now.toLocaleTimeString('pt-BR');
-      updateInfo.textContent = `Última atualização: ${timeStr}`;
-    }
-
-    // Salvar dados de linhas em edição antes de re-renderizar
-    function saveEditingState() {
-      // Salvar linhas existentes em edição
-      editingRows.forEach((_, id) => {
-        const rowEl = tableContainer.querySelector(`tr[data-id="${id}"]`);
-        if (rowEl) {
-          const editableCells = rowEl.querySelectorAll('td[contenteditable="true"]');
-          const rowData = {};
-          editableCells.forEach(cell => {
-            const column = cell.getAttribute('data-column');
-            rowData[column] = cell.innerText;
-          });
-          editingRows.set(id, rowData);
-        }
+// Função de busca global
+window.performGlobalSearch = async () => {
+  const searchInput = document.getElementById('globalSearch');
+  searchTerm = searchInput.value.trim();
+  
+  if (!searchTerm) {
+    alert('Digite algo para buscar!');
+    return;
+  }
+  
+  // Buscar em todas as tabelas
+  const tables = ['entregadores', 'gestores', 'usuarios'];
+  let allResults = [];
+  
+  for (const table of tables) {
+    const { data, error } = await supabaseClient
+      .from(table)
+      .select('*')
+      .order('id', { ascending: true });
+    
+    if (!error && data) {
+      // Filtrar resultados que contenham o termo de busca
+      const filtered = data.filter(row => {
+        return Object.values(row).some(value => {
+          return String(value || '').toLowerCase().includes(searchTerm.toLowerCase());
+        });
       });
-
-      // Salvar nova linha
-      const newRowEl = tableContainer.querySelector(`tr[data-id="new"]`);
-      if (newRowEl) {
-        const editableCells = newRowEl.querySelectorAll('td[contenteditable="true"]');
-        const rowData = {};
-        editableCells.forEach(cell => {
-          const column = cell.getAttribute('data-column');
-          rowData[column] = cell.innerText;
-        });
-        newRowData = rowData;
-      }
-    }
-
-    function renderTable(tableName, rows) {
-      // Salvar estado antes de re-renderizar
-      saveEditingState();
-
-      const columns = rows && rows.length > 0 ? Object.keys(rows[0]) : ["id","nome","login","senha","cadastro"];
       
-      let html = `<table class="data-table">
-        <thead><tr>${columns.map(c=>`<th>${c}</th>`).join('')}<th>Ações</th></tr></thead>
-        <tbody>`;
-      
-      if (rows && rows.length > 0) {
-        rows.forEach(row => {
-          const isEditing = editingRows.has(row.id);
-          const savedData = editingRows.get(row.id);
-          
-          html += `<tr data-id="${row.id}" class="${isEditing ? 'editing-row' : ''}">`;
-          columns.forEach(c => {
-            if(c === "id" || c === "cadastro") {
-              html += `<td class="not-editable">${row[c] ?? ""}</td>`;
-            } else {
-              const editable = isEditing ? 'true' : 'false';
-              // Se estiver editando e há dados salvos, usa os dados salvos
-              const value = isEditing && savedData && savedData[c] !== undefined 
-                ? savedData[c] 
-                : (row[c] ?? "");
-              html += `<td contenteditable="${editable}" data-column="${c}" class="${isEditing ? 'editable-active' : ''}">${value}</td>`;
-            }
-          });
-          
-          if (isEditing) {
-            html += `<td class="action-buttons">
-              <button class="table-button" onclick="saveRow(${row.id})">Salvar</button>
-              <button class="table-button cancel" onclick="cancelEdit(${row.id})">Cancelar</button>
-            </td>`;
-          } else {
-            html += `<td class="action-buttons">
-              <button class="table-button edit" onclick="editRow(${row.id})">Editar</button>
-              <button class="table-button delete" onclick="deleteRow(${row.id})">Apagar</button>
-            </td>`;
-          }
-          
-          html += `</tr>`;
-        });
-      }
-      
-      // Linha de adição (se estiver sendo criada)
-      if (newRowData !== null) {
-        html += `<tr data-id="new" class="editing-row new-row">`;
-        columns.forEach(c => {
-          if(c === "id" || c === "cadastro") {
-            html += `<td class="not-editable">(auto)</td>`;
-          } else {
-            const value = newRowData[c] || "";
-            html += `<td contenteditable="true" data-column="${c}" class="editable-active">${value}</td>`;
-          }
-        });
-        html += `<td class="action-buttons">
-          <button class="table-button" onclick="saveNewRow()">Salvar</button>
-          <button class="table-button cancel" onclick="cancelNewRow()">Cancelar</button>
-        </td></tr>`;
-      }
-      
-      html += `</tbody></table>`;
-      
-      // Botão adicionar só aparece se não há linha nova sendo criada
-      if (newRowData === null) {
-        html += `<button class="table-button add" onclick="addRow()">Adicionar Novo</button>`;
-      }
-      
-      tableContainer.innerHTML = html;
-    }
-
-    // Modo de edição
-    window.editRow = (id) => {
-      editingRows.set(id, {});
-      renderTableWithCurrentData();
-    };
-
-    window.cancelEdit = (id) => {
-      editingRows.delete(id);
-      loadTable();
-    };
-
-    // Adicionar nova linha
-    window.addRow = () => {
-      // Obter colunas da tabela atual
-      const firstRow = tableContainer.querySelector('tr[data-id]');
-      if (firstRow) {
-        const columns = Array.from(firstRow.querySelectorAll('td[data-column]')).map(td => td.getAttribute('data-column'));
-        newRowData = {};
-        columns.forEach(col => {
-          newRowData[col] = "";
-        });
-      } else {
-        newRowData = {};
-      }
-      renderTableWithCurrentData();
-    };
-
-    window.cancelNewRow = () => {
-      newRowData = null;
-      renderTableWithCurrentData();
-    };
-
-    // Renderizar tabela mantendo dados atuais (sem recarregar do banco)
-    async function renderTableWithCurrentData() {
-      const { data } = await supabaseClient
-        .from(currentTable)
-        .select('*')
-        .order('id', { ascending: true });
-      
-      if (data) {
-        renderTable(currentTable, data);
-      }
-    }
-
-    // Salvar linha editada
-    window.saveRow = async (id) => {
-      const rowEl = tableContainer.querySelector(`tr[data-id="${id}"]`);
-      const editableCells = rowEl.querySelectorAll('td[contenteditable="true"]');
-      
-      let updateObj = {};
-      editableCells.forEach(cell => {
-        const column = cell.getAttribute('data-column');
-        const value = cell.innerText.trim();
-        updateObj[column] = value;
+      // Adicionar nome da tabela aos resultados
+      filtered.forEach(row => {
+        allResults.push({ ...row, _tabela: table });
       });
+    }
+  }
+  
+  if (allResults.length === 0) {
+    tableContainer.innerHTML = `
+      <div class="search-container" style="margin-bottom: 15px;">
+        <input type="text" id="globalSearch" value="${searchTerm}" placeholder="Buscar em todas as tabelas..." 
+          style="width: 70%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+        <button class="table-button" onclick="performGlobalSearch()" 
+          style="padding: 8px 16px; margin-left: 10px;">Buscar</button>
+        <button class="table-button cancel" onclick="clearSearch()" 
+          style="padding: 8px 16px; margin-left: 5px;">Limpar</button>
+      </div>
+      <p style="text-align: center; padding: 30px; color: #666;">
+        Nenhum resultado encontrado em nenhuma tabela para "<strong>${searchTerm}</strong>"
+      </p>
+    `;
+    return;
+  }
+  
+  // Renderizar resultados
+  renderGlobalSearchResults(allResults);
+};
 
-      const { error } = await supabaseClient
-        .from(currentTable)
-        .update(updateObj)
-        .eq('id', id);
-      
-      if(error) {
-        alert("Erro ao atualizar: " + error.message);
-      } else {
-        alert("Registro atualizado com sucesso!");
-        editingRows.delete(id);
-        await loadTable();
+// Renderizar resultados da busca global
+function renderGlobalSearchResults(results) {
+  const columns = results.length > 0 ? Object.keys(results[0]).filter(k => k !== '_tabela') : [];
+  
+  let html = `
+    <p style="margin-bottom: 15px;"><strong>${results.length}</strong> resultado(s) encontrado(s) para "<strong>${searchTerm}</strong>"</p>
+    <button class="table-button cancel" onclick="clearSearch()" 
+      style="padding: 8px 16px; margin-bottom: 15px;">Voltar</button>
+    <table class="data-table">
+      <thead><tr><th>Tabela</th>${columns.map(c=>`<th>${c}</th>`).join('')}</tr></thead>
+      <tbody>
+  `;
+  
+  results.forEach(row => {
+    html += `<tr>`;
+    html += `<td style="background-color: #e3f2fd; font-weight: bold;">${row._tabela}</td>`;
+    columns.forEach(c => {
+      const value = String(row[c] || '');
+      // Destacar termo de busca
+      const highlighted = value.replace(
+        new RegExp(`(${searchTerm})`, 'gi'),
+        '<mark style="background-color: yellow; font-weight: bold;">$1</mark>'
+      );
+      html += `<td>${highlighted}</td>`;
+    });
+    html += `</tr>`;
+  });
+  
+  html += `</tbody></table>`;
+  
+  tableContainer.innerHTML = html;
+  
+  // Restaurar evento do campo de busca
+  const searchInput = document.getElementById('globalSearch');
+  if (searchInput) {
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        performGlobalSearch();
       }
-    };
+    });
+  }
+}
 
-    // Salvar nova linha
-    window.saveNewRow = async () => {
-      const rowEl = tableContainer.querySelector(`tr[data-id="new"]`);
-      const editableCells = rowEl.querySelectorAll('td[contenteditable="true"]');
-      
-      let newObj = {};
-      editableCells.forEach(cell => {
-        const column = cell.getAttribute('data-column');
-        const value = cell.innerText.trim();
-        newObj[column] = value;
-      });
+// Limpar busca
+window.clearSearch = () => {
+  searchTerm = '';
+  if (currentTable) {
+    loadTable();
+  } else {
+    tableContainer.innerHTML = `<p style="text-align: center; padding: 30px; color: #666;">
+      Selecione uma tabela para visualizar ou use a busca global acima
+    </p>`;
+  }
+};
 
-      // Gerar timestamp no formato texto brasileiro
-      const now = new Date();
-      const dia = String(now.getDate()).padStart(2, '0');
-      const mes = String(now.getMonth() + 1).padStart(2, '0');
-      const ano = now.getFullYear();
-      const hora = String(now.getHours()).padStart(2, '0');
-      const minuto = String(now.getMinutes()).padStart(2, '0');
-      const segundo = String(now.getSeconds()).padStart(2, '0');
-      
-      newObj.cadastro = `${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
+// Função para alternar visibilidade de colunas
+window.toggleColumn = (columnName) => {
+  const cells = tableContainer.querySelectorAll(`.col-${columnName}`);
+  cells.forEach(cell => {
+    if (cell.style.display === 'none') {
+      cell.style.display = '';
+    } else {
+      cell.style.display = 'none';
+    }
+  });
+};
 
-      const { data, error } = await supabaseClient
-        .from(currentTable)
-        .insert([newObj])
-        .select();
-      
-      if(error) {
-        alert("Erro ao salvar: " + error.message);
-      } else {
-        alert("Novo registro salvo com sucesso!");
-        newRowData = null;
-        await loadTable();
-      }
-    };
+window.editRow = (id) => {
+  editingRows.set(id, {});
+  renderTableWithCurrentData();
+};
 
-    // Apagar registro
-    window.deleteRow = async (id) => {
-      if(!confirm("Tem certeza que deseja apagar este registro?")) return;
-      
-      const { error } = await supabaseClient
-        .from(currentTable)
-        .delete()
-        .eq('id', id);
-      
-      if(error) {
-        alert("Erro ao apagar: " + error.message);
-      } else {
-        alert("Registro apagado com sucesso!");
-        await loadTable();
-      }
-    };
+window.cancelEdit = (id) => {
+  editingRows.delete(id);
+  loadTable();
+};
+
+window.addRow = () => {
+  const firstRow = tableContainer.querySelector('tr[data-id]');
+  if (firstRow) {
+    const columns = Array.from(firstRow.querySelectorAll('td[data-column]')).map(td => td.getAttribute('data-column'));
+    newRowData = {};
+    columns.forEach(col => {
+      newRowData[col] = "";
+    });
+  } else {
+    newRowData = {};
+  }
+  renderTableWithCurrentData();
+};
+
+window.cancelNewRow = () => {
+  newRowData = null;
+  renderTableWithCurrentData();
+};
+
+async function renderTableWithCurrentData() {
+  const { data } = await supabaseClient
+    .from(currentTable)
+    .select('*')
+    .order('id', { ascending: true });
+  
+  if (data) {
+    renderTable(currentTable, data);
+  }
+}
+
+window.saveRow = async (id) => {
+  const rowEl = tableContainer.querySelector(`tr[data-id="${id}"]`);
+  const editableCells = rowEl.querySelectorAll('td[contenteditable="true"]');
+  
+  let updateObj = {};
+  editableCells.forEach(cell => {
+    const column = cell.getAttribute('data-column');
+    const value = cell.innerText.trim();
+    updateObj[column] = value;
+  });
+
+  const { error } = await supabaseClient
+    .from(currentTable)
+    .update(updateObj)
+    .eq('id', id);
+  
+  if(error) {
+    alert("Erro ao atualizar: " + error.message);
+  } else {
+    alert("Registro atualizado com sucesso!");
+    editingRows.delete(id);
+    await loadTable();
+  }
+};
+
+window.saveNewRow = async () => {
+  const rowEl = tableContainer.querySelector(`tr[data-id="new"]`);
+  const editableCells = rowEl.querySelectorAll('td[contenteditable="true"]');
+  
+  let newObj = {};
+  editableCells.forEach(cell => {
+    const column = cell.getAttribute('data-column');
+    const value = cell.innerText.trim();
+    newObj[column] = value;
+  });
+
+  const now = new Date();
+  const dia = String(now.getDate()).padStart(2, '0');
+  const mes = String(now.getMonth() + 1).padStart(2, '0');
+  const ano = now.getFullYear();
+  const hora = String(now.getHours()).padStart(2, '0');
+  const minuto = String(now.getMinutes()).padStart(2, '0');
+  const segundo = String(now.getSeconds()).padStart(2, '0');
+  
+  newObj.cadastro = `${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
+
+  const { data, error } = await supabaseClient
+    .from(currentTable)
+    .insert([newObj])
+    .select();
+  
+  if(error) {
+    alert("Erro ao salvar: " + error.message);
+  } else {
+    alert("Novo registro salvo com sucesso!");
+    newRowData = null;
+    await loadTable();
+  }
+};
+
+window.deleteRow = async (id) => {
+  if(!confirm("Tem certeza que deseja apagar este registro?")) return;
+  
+  const { error } = await supabaseClient
+    .from(currentTable)
+    .delete()
+    .eq('id', id);
+  
+  if(error) {
+    alert("Erro ao apagar: " + error.message);
+  } else {
+    alert("Registro apagado com sucesso!");
+    await loadTable();
+  }
+};
   </script>
 </body>
 </html>
