@@ -1,0 +1,364 @@
+/* --- VARIÁVEIS (Paleta de Cores Praiana) --- */
+:root {
+    --bg-sand: #fffdf7;       /* Fundo areia bem clarinho */
+    --bg-white: #ffffff;      /* Branco puro para cards */
+    --brand-pink: #E0B7B5;    /* Seu rosa original */
+    --brand-hover: #d69c99;   /* Rosa um pouco mais escuro */
+    --ocean-blue: #69b486;    /* Verde-água (mantido do seu preço) */
+    --text-dark: #5a5a5a;     /* Cinza suave para textos */
+    --shadow-soft: 0 10px 20px rgba(0,0,0,0.05); /* Sombra leve */
+    --border-radius: 12px;    /* Cantos arredondados */
+}
+
+/* --- RESET & GERAL --- */
+html {
+    font-family: "Nunito", sans-serif;
+    background-color: var(--bg-sand); /* Mudança chave: sai o cinza, entra areia */
+    color: var(--text-dark);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER (Mais leve e limpo) --- */
+.header {
+    background-color: rgba(255, 255, 255, 0.9); /* Semitransparente */
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(224, 183, 181, 0.3);
+    position: sticky; /* O menu acompanha a rolagem */
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px); /* Efeito de vidro fosco */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.logoimg {
+    width: 80px; /* Um pouco menor para elegância */
+    height: 80px;
+    border-radius: 50%; /* Logo redonda é mais orgânica */
+    object-fit: cover;
+    position: absolute;
+    left: 5%; /* Posicionado à esquerda */
+    top: 10px;
+    border: 2px solid var(--brand-pink);
+}
+
+/* --- NAVEGAÇÃO --- */
+.menu {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.ButtonHome {
+    background-color: transparent;
+    border: 2px solid var(--brand-pink);
+    color: var(--brand-pink);
+    padding: 10px 25px;
+    font-family: "Comfortaa", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 30px; /* Botão pílula */
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.ButtonHome a {
+    color: inherit; /* Herda a cor do botão */
+    text-decoration: none;
+}
+
+.ButtonHome:hover {
+    background-color: var(--brand-pink);
+    color: white;
+    transform: translateY(-2px); /* Leve flutuação */
+    box-shadow: 0 5px 15px rgba(224, 183, 181, 0.4);
+}
+
+.Carrinho {
+    position: absolute;
+    right: 5%;
+    top: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.Carrinho:hover {
+    transform: scale(1.1);
+}
+
+.CarrinhoImg {
+    width: 35px;
+    height: 35px;
+}
+
+/* --- TÍTULOS --- */
+h1 {
+    text-align: center;
+    font-size: 48px; /* Tamanho ajustado */
+    color: var(--brand-pink);
+    font-family: "Josefin Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 40px;
+    text-shadow: none; /* Remove a sombra cinza pesada */
+}
+
+/* --- VITRINE (Cards de Produtos) --- */
+.novidades {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    gap: 30px; /* Espaçamento entre cards */
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.novidade {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    width: 220px; /* Largura fixa para alinhar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow-soft); /* Sombra suave e moderna */
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.novidade:hover {
+    transform: translateY(-5px); /* Sobe ao passar o mouse */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: var(--brand-pink);
+}
+
+.novidadeimg {
+    width: 100%;
+    height: 250px; /* Altura fixa para padronizar */
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.NovidadeFonte {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+    color: var(--text-dark);
+    font-weight: bold;
+    text-align: center;
+}
+
+.NovidadePreco {
+    color: var(--ocean-blue);
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+/* --- CATEGORIAS (Home) --- */
+.categorias {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.categoria {
+    position: relative; /* Para posicionar o texto sobre a imagem se quiser */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.categoria:hover {
+    transform: scale(1.02);
+}
+
+.categoriaimg {
+    width: 250px;
+    height: 350px;
+    border-radius: 15px; /* Cantos mais arredondados */
+    object-fit: cover;
+    box-shadow: var(--shadow-soft);
+    border: none; /* Remove borda dupla */
+}
+
+.CategoriaFonte {
+    background-color: var(--bg-white);
+    padding: 10px 30px;
+    border-radius: 50px;
+    margin-top: -25px; /* Sobe para ficar em cima da imagem */
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid var(--brand-pink);
+    font-family: "Comfortaa", sans-serif;
+}
+
+.linkagemCategorias {
+    text-decoration: none;
+    color: var(--brand-pink);
+    font-weight: bold;
+}
+
+/* --- MODAL (Estilo Moderno) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo mais escuro */
+    backdrop-filter: blur(4px); /* Desfoque no fundo */
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--bg-white);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    border: none; /* Remove borda grossa */
+    overflow: hidden;
+    display: flex;
+    flex-direction: row; /* Imagem lado a lado */
+}
+
+.modal-left {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 0;
+}
+
+.modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    border-radius: 0;
+}
+
+.modal-right {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #aaa;
+    font-size: 30px;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: var(--brand-pink);
+}
+
+.add-to-cart {
+    background-color: var(--ocean-blue);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.add-to-cart:hover {
+    background-color: #559e70;
+    cursor: pointer;
+}
+
+/* Inputs do Modal */
+input[type="number"], select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background-color: #fff; /* Fundo branco */
+    border-top: 1px solid #eee;
+    padding: 40px 20px;
+    margin-top: auto; /* Empurra para o final */
+}
+
+.footer h2 {
+    color: var(--brand-pink);
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.social img {
+    width: 35px;
+    height: 35px;
+    margin: 0 10px;
+    transition: transform 0.3s;
+    opacity: 0.7;
+}
+
+.social img:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.copy {
+    background-color: var(--brand-pink);
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+    .logoimg {
+        position: relative;
+        left: auto;
+        margin-bottom: 15px;
+    }
+    .modal-content {
+        flex-direction: column;
+        height: 90vh;
+        overflow-y: auto;
+    }
+    .modal-image {
+        max-height: 300px;
+    }
+}

@@ -1,0 +1,77 @@
+/* KonaWai/CSS/home.css 
+   Estilos exclusivos da Página Inicial
+*/
+
+/* --- AJUSTE DO MENU MOBILE (Hambúrguer) --- */
+.menu-toggle {
+    display: none; /* Escondido em telas grandes */
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--brand-pink);
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 200;
+}
+
+/* --- OVERRIDES DE CATEGORIAS NA HOME --- */
+/* Ajuste fino para as categorias ficarem perfeitas na Home */
+.categorias {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    gap: 40px;
+}
+
+.categoriaimg {
+    /* Garante que as imagens da home sigam o padrão arredondado */
+    border-radius: 20px; 
+    transition: transform 0.4s ease;
+}
+
+/* Efeito especial ao passar o mouse na categoria */
+.categoria:hover .categoriaimg {
+    transform: scale(1.03) rotate(1deg); /* Leve rotação divertida */
+    box-shadow: 0 20px 40px rgba(105, 180, 134, 0.2); /* Sombra esverdeada */
+}
+
+/* --- RESPONSIVIDADE DA HOME --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Aparece no celular */
+    }
+
+    /* Esconde o menu normal no celular inicialmente */
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Classe adicionada pelo JavaScript quando clica no hambúrguer */
+    .ButtonHome.active, .menu.active { 
+        display: flex; /* Ou block, dependendo da estrutura */
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .ButtonHome {
+        margin: 10px auto;
+        width: 80%;
+        display: block; /* Botões empilhados */
+    }
+    
+    .logoimg {
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza logo no mobile */
+    }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
