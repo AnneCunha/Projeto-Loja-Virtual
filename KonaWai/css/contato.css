@@ -1,0 +1,33 @@
+.fundadoras{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.fundadora{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.fundadoraimg2{
+    max-width: 300px;
+    max-height: 300px;
+    border: 6px double #E0B7B5;
+    box-shadow: 5px 5px 5px 5px gray;
+    margin: 20px;
+}
+.fundadoraimg1{
+    max-width: 600px;
+    max-height: 600px;
+    border: 6px double #E0B7B5;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 3px 3px 5px 5px gray;
+    margin: 20px;
+}
+.FundadoraFonte{
+    font-weight: 300;
+    font-size: 18px;
+    margin: 20px;
+    cursor: default;
+}
