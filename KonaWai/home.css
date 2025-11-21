@@ -1,11 +1,17 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 html{
     font-family: "Nunito", sans-serif;
     background-color: #E3DADA;
 }
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin-left: 150px;
+  box-sizing: border-box;
+  margin-top: 150px;
+
+
 }
 .header {
     background-color: #F5DFDF;
@@ -15,15 +21,8 @@ body {
     border-bottom: solid;
     border-color: #E0B7B5;
 }
-.logoimg{
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    right: 91%;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: #E0B7B5;
-}
+
+
 .ButtonHome{
     background-color: #E0B7B5;
     border: none;
@@ -58,7 +57,7 @@ body {
     width: 50px;
     height: 50px;
     border-style: none;
-    background-color: #F5DFDF;
+    background-color: #E3DADA;
     cursor: pointer;
 }
 
@@ -148,8 +147,8 @@ h1 {
 .novidades {
     display: flex;
     justify-content: space-evenly;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 .novidade {
     display: flex;
@@ -158,10 +157,10 @@ h1 {
     align-items: center; 
     background-color: #ffffff;
     border-color: #ffffff;
-    padding-top: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 2px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
     box-shadow: 5px 5px 5px  #b4b3b3;
     margin: 10px;
     cursor: pointer;
@@ -533,4 +532,6 @@ select {
     width: 100%;
   }
 }
+
+
 
