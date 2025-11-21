@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja KonaWai | Biquínis</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/biquini.css">
+=======
+    <link rel="stylesheet" href="CSS/biquini.css">
+    <link rel="stylesheet" href="CSS/home.css">
+>>>>>>> 52ffd537e27763bbb692cf2488af8dc7ef515b91
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -138,47 +143,7 @@
 
         
                     <button class="add-to-cart">Adicionar ao Carrinho</button>
-                    <script>
-                        const novidades = document.querySelectorAll('.novidadeimg');
-                        const modal = document.getElementById('productModal');
-                        const modalImage = document.getElementById('modalImage');
-                        const modalTitle = document.getElementById('modalTitle');
-                        const modalDescription = document.getElementById('modalDescription');
-                        const closeModal = document.querySelector('.close');
-                
-                        // Função para exibir o modal com animação
-                        function openModal(imgSrc, title, price) {
-                            modalImage.src = imgSrc;
-                            modalTitle.textContent = title;
-                            modalDescription.textContent = `Este é o ${title}, disponível por ${price}. Aproveite a oferta e leve o seu!`;
-                
-                            // Exibe o modal com classe de animação
-                            modal.classList.add('show');
-                        }
-                
-                        // Adiciona evento de clique em cada novidade
-                        novidades.forEach((novidade) => {
-                            novidade.addEventListener('click', (event) => {
-                                const item = event.currentTarget.closest('.novidade');
-                                const title = item.querySelector('h2').textContent;
-                                const price = item.querySelector('.NovidadePreco').textContent;
-                                const imgSrc = item.querySelector('img').src;
-                
-                                openModal(imgSrc, title, price);
-                            });
-                        });
-                
-                        // Fechar o modal ao clicar no 'X' ou fora dele
-                        closeModal.addEventListener('click', () => {
-                            modal.classList.remove('show');
-                        });
-                
-                        window.addEventListener('click', (event) => {
-                            if (event.target === modal) {
-                                modal.classList.remove('show');
-                            }
-                        });
-                    </script>
+                    
                     
                 </div>
             </div>             
@@ -203,6 +168,6 @@
                         </div>    
                     </div>
                 </footer>
-                    
+           <script src="js/modal.js" defer></script>         
 </body>
 </html>
