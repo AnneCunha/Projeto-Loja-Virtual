@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #F5DFDF;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+
+}
+
+
+
+.Carrinho{
+    margin-top: 10px;
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    background-color: #F5DFDF;
+    cursor: pointer;
+}
+
+.CarrinhoImg{
+    width: 50px;
+    height: 50px;
+    margin: 0px;
+    cursor: pointer;
+
+}
+.Carrinho3{
+    margin-top: 10px;
+    margin-right: 1200px;
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    width: 70px;
+    height: 70px;
+    border-style: none;
+    background-color: #F5DFDF;
+    cursor: pointer;
+}
+
+.logoimg1{
+    width: 70px;
+    height: 70px;
+    margin: 0px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+p{
+    text-align: center;
+}
+input{
+    width: 300px;
+    height: 40px;
+    margin-top: 2px;
+    border-radius: 20px;
+      background-color: white;
+    border: solid 5px;
+  border-radius:15px;
+  width:300px;
+  border: none;
+  font-size: 14px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+input::placeholder{
+    opacity: 50%;
+    text-align: center;
+}
+#txtBusca{
+  float:left;
+  background-color:transparent;
+  padding-left:5px;
+  font-size:18px;
+  border:none;
+  height:32px;
+  width:191px;
+}
+
+.BTN{
+
+    background-color: #F5DFDF;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    padding: 10px;
+    margin: 10px;
+}
+.BTN:hover{
+    cursor: pointer;
+    background-color: white;
+    
+}
+img{
+    margin-top: 10px;
+    width: 70px;
+    height: 70px;
+}
+
