@@ -1,6 +1,6 @@
 html{
     font-family: "Nunito", sans-serif;
-    background-color: #E3DADA;
+    background-color: #8db4d4;
 }
 body {
     margin: 0;
@@ -8,12 +8,12 @@ body {
     box-sizing: border-box;
 }
 .header {
-    background-color: #F5DFDF;
+    background-color: #6884aa;
     padding: 20px;
     text-align: center;
     font-size: 35px;
     border-bottom: solid;
-    border-color: #E0B7B5;
+    border-color: #000000;
 }
 .logoimg{
     width: 100px;
@@ -22,12 +22,12 @@ body {
     right: 91%;
     border-radius: 5px;
     border-style: solid;
-    border-color: #E0B7B5;
+    border-color: #e21106;
 }
 .ButtonHome{
-    background-color: #E0B7B5;
+    background-color: #7c5a58;
     border: none;
-    color: rgb(255, 255, 255);
+    color: rgb(143, 115, 115);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -38,7 +38,7 @@ body {
     border-radius: 5px;
     margin-left: 15px;
     margin-right: 15px;
-    box-shadow: 5px 5px 5px  #b4b3b3
+    box-shadow: 5px 5px 5px  #2c1f1f
 }
 .ButtonHome:hover{
     background-color: #b3d4e7;
@@ -60,7 +60,7 @@ body {
 h1 {
     text-align: center;
     font-size: 64px;
-    text-shadow: 5px 5px 5px  #b4b3b3;
+    text-shadow: 5px 5px 5px  #1b0303;
     color: #ffffff;
     font-family: "Josefin Sans", sans-serif;
     cursor: unset;
@@ -128,14 +128,15 @@ h1 {
     justify-content: center;
     flex-direction: column;
     align-items: center; 
-    background-color: #ffffff;
-    border-color: #ffffff;
+    background-color: #ad5555;
+    border-color: #f00a0a;
     padding-top: 30px;
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 2px;
-    box-shadow: 5px 5px 5px  #b4b3b3;
+    box-shadow: 5px 5px 5px  #110808;
     margin: 10px;
+    border-radius: 7px;
 }
 .NovidadeFonte{
     margin-top: 15px;
@@ -145,7 +146,7 @@ h1 {
 .NovidadePreco {
     margin: 0;
     margin-bottom: 10px;
-    color: #69b486;
+    color: #ffffff;
     font-size: 18px;
 }
 
@@ -317,7 +318,7 @@ select {
     width: 50px;
     height: 50px;
     border-style: none;
-    background-color: #F5DFDF;
+    background-color: #584242;
     cursor: pointer;
 }
 
