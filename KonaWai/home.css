@@ -335,12 +335,14 @@ select {
     color: #ffffff;
     font-family: "Nunito", sans-serif;
     font-weight: 300;
+    
 }
 .linkagemCategorias{
     text-decoration-line: none;
     color: #c59696;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
+   
 }
 
 /* --- Responsividade --- */
@@ -390,11 +392,13 @@ select {
   .categorias {
     flex-wrap: wrap;
     gap: 20px;
+    
   }
 
   .categoriaimg {
     width: 180px;
     height: 240px;
+    
   }
 
   .novidades {
@@ -452,6 +456,7 @@ select {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+   
   }
 
   .categoriaimg {
@@ -463,6 +468,7 @@ select {
   .CategoriaFonte {
     width: 140px;
     font-size: 14px;
+     border-radius: 12%;
   }
 
   /* --- NOVIDADES --- */
@@ -475,7 +481,7 @@ select {
   .novidadeimg {
     width: 140px;
     height: 140px;
-    border-radius: 12px;
+    border-radius: 120px;
   }
 
   h1 {
@@ -534,3 +540,20 @@ select {
   }
 }
 
+.Tpesquisa{
+width: 300px;
+height: 17px;
+border:  #c59696;
+border-radius: 2%;
+
+}
+.btbuscar{
+  border:  #c59696;
+width: 50px;
+height: 17px;
+border-radius: 12%;
+}
+.btbuscar:hover{
+  background-color: #b3d4e7;
+  color: white;
+}
