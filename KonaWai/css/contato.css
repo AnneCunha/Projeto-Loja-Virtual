@@ -1,0 +1,104 @@
+/* KonaWai/CSS/contato.css 
+   Estilos exclusivos da página Sobre Nós
+*/
+
+/* --- SEÇÃO FUNDADORAS --- */
+.fundadoras {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinha verticalmente ao centro */
+    margin: 60px auto;
+    max-width: 1200px;
+    gap: 40px; /* Espaço entre os elementos */
+    padding: 0 20px;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+}
+
+.fundadora {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Estilo comum para as duas imagens */
+.fundadoraimg1, .fundadoraimg2 {
+    border-radius: 20px; /* Cantos arredondados modernos */
+    object-fit: cover;
+    box-shadow: var(--shadow-soft); /* Usa a sombra suave do biquini.css */
+    border: 3px solid white; /* Borda branca limpa */
+    transition: transform 0.3s ease;
+}
+
+/* Ajuste específico da imagem grande */
+.fundadoraimg1 {
+    max-width: 400px; /* Reduzi um pouco para não estourar a tela */
+    height: auto;
+}
+
+/* Ajuste específico da imagem menor (logo/perfil) */
+.fundadoraimg2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Círculo perfeito fica mais bonito para perfil/logo */
+    border: 4px solid var(--brand-pink);
+}
+
+.fundadoraimg1:hover, .fundadoraimg2:hover {
+    transform: scale(1.02);
+}
+
+/* Texto descritivo */
+.FundadoraFonte {
+    font-family: "Nunito", sans-serif; /* Fonte mais legível para texto longo */
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6; /* Melhor leitura */
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    max-width: 500px; /* Limita a largura do texto */
+    text-align: justify;
+    position: relative;
+}
+
+/* Detalhe decorativo no texto (aspas ou borda lateral) */
+.FundadoraFonte::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--ocean-blue);
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+
+.FundadoraFonte strong {
+    color: var(--brand-pink);
+    font-family: "Comfortaa", sans-serif;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .fundadora {
+        flex-direction: column; /* Empilha tudo no celular */
+        text-align: center;
+    }
+
+    .FundadoraFonte {
+        order: 2; /* Texto fica no meio ou fim se preferir */
+    }
+    
+    .FundadoraFonte::before {
+        margin: 0 auto 15px auto; /* Centraliza o detalhe */
+    }
+
+    .fundadoraimg1 {
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+}

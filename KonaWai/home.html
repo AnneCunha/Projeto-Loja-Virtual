@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja KonaWai | Home</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="CSS/biquini.css">
+    <link rel="stylesheet" href="CSS/home.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +26,7 @@
             <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Home</a></button>
             <button class="ButtonHome"><a href="produtos.html" class="LinkagemHome">Produtos</a></button>
             <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
+            <button class="ButtonHome"><a href="login.html" class="LinkagemHome">Entrar</a></button>
         </div>
 
         <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
@@ -146,62 +148,11 @@
         </div>
     </div>
     
-    
-    <script>
-        const novidades = document.querySelectorAll('.novidadeimg');
-        const modal = document.getElementById('productModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDescription = document.getElementById('modalDescription');
-        const closeModal = document.querySelector('.close');
-
-        // Função para exibir o modal com animação
-        function openModal(imgSrc, title, price) {
-            modalImage.src = imgSrc;
-            modalTitle.textContent = title;
-            modalDescription.innerHTML = "Este é o <strong>" + title + "</strong>, disponível por <strong>" + price + "</strong>. Aproveite a oferta e leve o seu!";
-
-
-            // Exibe o modal com classe de animação
-            modal.classList.add('show');
-        }
-
-        // Adiciona evento de clique em cada novidade
-        novidades.forEach((novidade) => {
-            novidade.addEventListener('click', (event) => {
-                const item = event.currentTarget.closest('.novidade');
-                const title = item.querySelector('h2').textContent;
-                const price = item.querySelector('.NovidadePreco').textContent;
-                const imgSrc = item.querySelector('img').src;
-
-                openModal(imgSrc, title, price);
-            });
-        });
-
-        // Fechar o modal ao clicar no 'X' ou fora dele
-        closeModal.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.classList.remove('show');
-            }
-        });
-     </script>
-    
               
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
     <div class="elfsight-app-02d5008f-6ee7-4ece-bed7-cdb7a5e8dd35" data-elfsight-app-lazy></div>
 
-    <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const buttons = document.querySelectorAll('.ButtonHome');
-
-    menuToggle.addEventListener('click', () => {
-    buttons.forEach(btn => btn.classList.toggle('active'));
-    });
-    </script>
+    
 
 
     <footer>
@@ -219,6 +170,9 @@
                 <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
             </div>    
         </div>
+
+        <script src="js/home-scripts.js" defer></script>
+
 </body>
 
 </html>
