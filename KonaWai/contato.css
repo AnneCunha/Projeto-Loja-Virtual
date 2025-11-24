@@ -9,6 +9,18 @@
     align-items: center;
     justify-content: space-around;
 }
+.voltar{
+    background-color: #E0B7B5;
+    width: 40px;
+    border-radius:  9px;
+    text-align: center;
+    border: solid 3px;
+    border-color: aliceblue;
+}
+a{
+   
+    font-size: x-large;
+}
 .fundadoraimg2{
     max-width: 300px;
     max-height: 300px;
