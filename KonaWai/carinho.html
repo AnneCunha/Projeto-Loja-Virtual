@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja KonaWai | Seu Carrinho</title>
+    <link rel="stylesheet" href="CSS/biquini.css">
+    <link rel="stylesheet" href="CSS/carinho.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo.jpg">
+</head>
+<body>
+    <div class="header">
+        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
+        <div class="menu">
+            <button class="ButtonHome"><a href="home.html" class="linkagem">Home</a></button>
+            <button class="ButtonHome"><a href="produtos.html" class="linkagem">Produtos</a></button>
+            <button class="ButtonHome"><a href="contato.html" class="linkagem">Sobre Nós</a></button>
+        </div>
+        <a class="Carrinho" href="carinho.html"><img src="img/shopping_10719046.png" class="CarrinhoImg"></a>
+    </div>    
+
+    <div class="container-carrinho">
+        <h1>Seu Carrinho de Compras</h1>
+        
+        <table class="tabela-carrinho" id="tabelaCarrinho">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Descrição</th>
+                    <th>Tam.</th>
+                    <th>Preço</th>
+                    <th>Qtd</th>
+                    <th>Total</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="listaItens">
+                </tbody>
+        </table>
+
+        <div id="mensagemVazio" class="msg-vazio" style="display: none;">
+            Seu carrinho está vazio. <a href="biquini.html">Voltar às compras</a>
+        </div>
+
+        <div class="total-container">
+            Total Geral: <span id="totalGeral">R$ 0,00</span>
+        </div>
+
+        <button class="btn-finalizar" onclick="alert('Compra Finalizada com Sucesso!')">Finalizar Compra</button>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <h2>Loja KonaWai</h2>
+            <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
+        </div>
+    </footer>
+
+    <script src="JS/carinho.js"></script>
+</body>
+</html>

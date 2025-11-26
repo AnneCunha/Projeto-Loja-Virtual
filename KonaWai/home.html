@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja KonaWai | Home</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="CSS/home.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="header">
-        <div class="menu-toggle">☰</div>
+        <div class="linhares"></div>
 
         <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
 
@@ -27,8 +27,8 @@
             <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
         </div>
 
-        <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
-  
+        
+         <a href="carrinho-de-compras.html"><button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button> </a>
     </div>    
     <h1>Categorias</h1>
     <div class="categorias">
@@ -37,7 +37,10 @@
             <h2 class="CategoriaFonte">
                 <a href="biquini.html" class="linkagemCategorias">Biquínis</a>
             </h2>
+                         
         </div>
+        
+
         
         <div class="categoria">
             <img src="img/SDP.jpg" alt="Categoria 2" class="categoriaimg">        
@@ -59,6 +62,7 @@
                 <a href="canga.html" class="linkagemCategorias">Cangas</a>
             </h2>
         </div>
+
     </div>  
     
     
@@ -66,7 +70,7 @@
     <div class="novidades">
         <div class="novidade">
             <img src="img/bikini1.jpg" alt="Novidade 1" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 1</h2>
+            <h2 class="NovidadeFonte">            </h2>
             <p class="NovidadePreco">R$ 100,00</p>
         </div>
         <div class="novidade">
@@ -119,6 +123,8 @@
         </div>   
     </div> 
 
+    
+
     <div id="productModal" class="modal">
         <div class="modal-content">
             <div class="modal-left">
@@ -147,48 +153,7 @@
     </div>
     
     
-    <script>
-        const novidades = document.querySelectorAll('.novidadeimg');
-        const modal = document.getElementById('productModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDescription = document.getElementById('modalDescription');
-        const closeModal = document.querySelector('.close');
-
-        // Função para exibir o modal com animação
-        function openModal(imgSrc, title, price) {
-            modalImage.src = imgSrc;
-            modalTitle.textContent = title;
-            modalDescription.innerHTML = "Este é o <strong>" + title + "</strong>, disponível por <strong>" + price + "</strong>. Aproveite a oferta e leve o seu!";
-
-
-            // Exibe o modal com classe de animação
-            modal.classList.add('show');
-        }
-
-        // Adiciona evento de clique em cada novidade
-        novidades.forEach((novidade) => {
-            novidade.addEventListener('click', (event) => {
-                const item = event.currentTarget.closest('.novidade');
-                const title = item.querySelector('h2').textContent;
-                const price = item.querySelector('.NovidadePreco').textContent;
-                const imgSrc = item.querySelector('img').src;
-
-                openModal(imgSrc, title, price);
-            });
-        });
-
-        // Fechar o modal ao clicar no 'X' ou fora dele
-        closeModal.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.classList.remove('show');
-            }
-        });
-     </script>
+  
     
               
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
@@ -219,6 +184,8 @@
                 <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
             </div>    
         </div>
+        <script src="JS/carinho.js"></script>
+        <script src="JS/home.js"></script>
 </body>
 
 </html>
