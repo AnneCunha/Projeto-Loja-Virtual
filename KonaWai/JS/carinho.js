@@ -130,3 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
         carregarCarrinho(); // Recarrega a tabela
     };
 });
+
+
+if(oi){
+
+}
