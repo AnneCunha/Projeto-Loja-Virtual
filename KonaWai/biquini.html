@@ -1,208 +1,453 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loja KonaWai | Biquínis</title>
-    <link rel="stylesheet" href="biquini.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/logo.jpg">
+    <link rel="stylesheet" href="biquini.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="img/logo.jpg" />
+  </head>
+  <body>
+    <header class="header">
+      <img src="img/logo.jpg" alt="Logo da loja" class="logoimg" />
+      <nav class="menu">
+        <a href="home.html" class="ButtonHome linkagem">Home</a>
+        <a href="produtos.html" class="ButtonHome linkagem">Produtos</a>
+        <a href="contato.html" class="ButtonHome linkagem">Sobre Nós</a>
+      </nav>
+      <button class="Carrinho" id="openCart">
+        <img
+          src="img/shopping_10719046.png"
+          alt="Ícone de Carrinho"
+          class="CarrinhoImg"
+        />
+      </button>
+    </header>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="header">
-        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
-        <div class="menu">
-            <button class="ButtonHome"><a href="home.html" class="linkagem">Home</a></button>
-            <button class="ButtonHome"><a href="produtos.html" class="linkagem">Produtos</a></button>
-            <button class="ButtonHome"><a href="contato.html" class="linkagem">Sobre Nós</a></button>
+    <main>
+      <h1>Biquínis</h1>
+      <div class="product-grid">
+        <div
+          class="novidade product-card"
+          data-id="1"
+          data-title="Biquíni Azul"
+          data-price="236.00"
+          data-description="Biquíni azul com top cortininha e amarração lateral. Perfeito para o verão!"
+          data-img="img/bikini12.jpg"
+        >
+          <img src="img/bikini12.jpg" alt="Biquíni azul" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Biquíni azul</h2>
+          <p class="NovidadePreco">R$ 236,00</p>
+          <button class="view-details">Ver Detalhes</button>
         </div>
 
-        <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
-  
-    </div>    
+        <div
+          class="novidade product-card"
+          data-id="2"
+          data-title="Biquíni Azul Escuro"
+          data-price="250.00"
+          data-description="Modelo elegante em azul marinho. Detalhes em metal dourado no top."
+          data-img="img/bikini20.jpg"
+        >
+          <img src="img/bikini20.jpg" alt="Biquíni azul" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Biquíni azul</h2>
+          <p class="NovidadePreco">R$ 250,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
 
-        <h1>Biquínis</h1>
-        <div class="novidades">
-            <div class="novidade">
-                <img src="img/bikini12.jpg" alt="Novidade 1" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquíni azul</h2>
-                <p class="NovidadePreco">R$ 236,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini20.jpg" alt="Novidade 2" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquíni azul</h2>
-                <p class="NovidadePreco">R$ 250,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini14.jpg" alt="Novidade 3" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquíni rosa</h2>
-                <p class="NovidadePreco">R$ 230,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini19.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquíni Marrom</h2>
-                <p class="NovidadePreco">R$ 199,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini15.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquini Brasil</h2>
-                <p class="NovidadePreco">R$ 260,00</p>
-            </div>   
-        </div> 
-    
-        <div class="novidades">
-            <div class="novidade">
-                <img src="img/bikini21.jpg" alt="Novidade 1" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquini vermelho</h2>
-                <p class="NovidadePreco">R$ 200,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini17.jpg" alt="Novidade 2" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquini laranja</h2>
-                <p class="NovidadePreco">R$ 190,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini16.jpg" alt="Novidade 3" class="novidadeimg">
-                <h2 class="NovidadeFonte"> Biquíni marinho</h2>
-                <p class="NovidadePreco">R$ 150,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini23.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquíni preto</h2>
-                <p class="NovidadePreco">R$ 189,99</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini22.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquíni lilás</h2>
-                <p class="NovidadePreco">R$ 179,00</p>
-            </div>   
-        </div> 
-        <div class="novidades">
-            <div class="novidade">
-                <img src="img/bikini24.jpg" alt="Novidade 1" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquini florido</h2>
-                <p class="NovidadePreco">R$ 140,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini11.jpg" alt="Novidade 2" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquíni rosa</h2>
-                <p class="NovidadePreco">R$ 125,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini25.jpg" alt="Novidade 3" class="novidadeimg">
-                <h2 class="NovidadeFonte"> Biquíni musgo</h2>
-                <p class="NovidadePreco">R$ 120,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini13.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquíni branco</h2>
-                <p class="NovidadePreco">R$ 135,99</p>
-            </div>
-            <div class="novidade">
-                <img src="img/bikini26.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Biquíni preto </h2>
-                <p class="NovidadePreco">R$ 159,00</p>
-            </div>   
-        </div> 
+        <div
+          class="novidade product-card"
+          data-id="3"
+          data-title="Biquíni Rosa Pink"
+          data-price="230.00"
+          data-description="Cor vibrante e alegre, ideal para quem quer se destacar na praia. Tecido com proteção UV."
+          data-img="img/bikini14.jpg"
+        >
+          <img src="img/bikini14.jpg" alt="Biquíni rosa" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Biquíni rosa</h2>
+          <p class="NovidadePreco">R$ 230,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="4"
+          data-title="Biquíni Marrom"
+          data-price="199.00"
+          data-description="Clássico biquíni cor marrom, tom terroso que combina com qualquer estação."
+          data-img="img/bikini19.jpg"
+        >
+          <img
+            src="img/bikini19.jpg"
+            alt="Biquíni Marrom"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Biquíni Marrom</h2>
+          <p class="NovidadePreco">R$ 199,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="5"
+          data-title="Biquini Brasil"
+          data-price="260.00"
+          data-description="Biquíni em cores temáticas, perfeito para torcer ou para um look alegre."
+          data-img="img/bikini15.jpg"
+        >
+          <img
+            src="img/bikini15.jpg"
+            alt="Biquini Brasil"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Biquini Brasil</h2>
+          <p class="NovidadePreco">R$ 260,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="6"
+          data-title="Biquini Vermelho"
+          data-price="200.00"
+          data-description="Paixão e estilo em vermelho vivo. Modelo asa delta para valorizar o corpo."
+          data-img="img/bikini21.jpg"
+        >
+          <img
+            src="img/bikini21.jpg"
+            alt="Biquini vermelho"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Biquini vermelho</h2>
+          <p class="NovidadePreco">R$ 200,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="7"
+          data-title="Biquini Laranja"
+          data-price="190.00"
+          data-description="Laranja energizante, com detalhes em babado no top. Ideal para bronzeamento."
+          data-img="img/bikini17.jpg"
+        >
+          <img
+            src="img/bikini17.jpg"
+            alt="Biquini laranja"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Biquini laranja</h2>
+          <p class="NovidadePreco">R$ 190,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="8"
+          data-title="Biquíni Marinho"
+          data-price="150.00"
+          data-description="Clássico marinho, atemporal e discreto. Ótimo custo-benefício e durabilidade."
+          data-img="img/bikini16.jpg"
+        >
+          <img
+            src="img/bikini16.jpg"
+            alt="Biquíni marinho"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Biquíni marinho</h2>
+          <p class="NovidadePreco">R$ 150,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="9"
+          data-title="Biquíni Preto"
+          data-price="189.99"
+          data-description="O pretinho básico que não pode faltar! Top faixa e calcinha hot pants."
+          data-img="img/bikini23.jpg"
+        >
+          <img src="img/bikini23.jpg" alt="Biquíni preto" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Biquíni preto</h2>
+          <p class="NovidadePreco">R$ 189,99</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="10"
+          data-title="Biquíni Lilás"
+          data-price="179.00"
+          data-description="Cor da moda! Lilás suave, perfeito para fotos e looks delicados de verão."
+          data-img="img/bikini22.jpg"
+        >
+          <img src="img/bikini22.jpg" alt="Biquíni lilás" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Biquíni lilás</h2>
+          <p class="NovidadePreco">R$ 179,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="11"
+          data-title="Biquini Florido"
+          data-price="140.00"
+          data-description="Estampa floral clássica e romântica. Tecido leve e secagem rápida."
+          data-img="img/bikini24.jpg"
+        >
+          <img
+            src="img/bikini24.jpg"
+            alt="Biquini florido"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Biquini florido</h2>
+          <p class="NovidadePreco">R$ 140,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="12"
+          data-title="Biquíni Rosa Claro"
+          data-price="125.00"
+          data-description="Rosa claro básico, ideal para quem busca simplicidade e conforto."
+          data-img="img/bikini11.jpg"
+        >
+          <img src="img/bikini11.jpg" alt="Biquíni rosa" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Biquíni rosa</h2>
+          <p class="NovidadePreco">R$ 125,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="13"
+          data-title="Biquíni Musgo"
+          data-price="120.00"
+          data-description="Tom de verde musgo sofisticado, um dos favoritos para o inverno na praia."
+          data-img="img/bikini25.jpg"
+        >
+          <img src="img/bikini25.jpg" alt="Biquíni musgo" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Biquíni musgo</h2>
+          <p class="NovidadePreco">R$ 120,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="14"
+          data-title="Biquíni Branco"
+          data-price="135.99"
+          data-description="Branco clássico, destaca o bronzeado e é perfeito para noivas de praia."
+          data-img="img/bikini13.jpg"
+        >
+          <img
+            src="img/bikini13.jpg"
+            alt="Biquíni branco"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Biquíni branco</h2>
+          <p class="NovidadePreco">R$ 135,99</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+
+        <div
+          class="novidade product-card"
+          data-id="15"
+          data-title="Biquíni Preto Básico"
+          data-price="159.00"
+          data-description="Top triângulo e calcinha tradicional. Essencial no guarda-roupa de verão."
+          data-img="img/bikini26.jpg"
+        >
+          <img src="img/bikini26.jpg" alt="Biquíni preto" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Biquíni preto</h2>
+          <p class="NovidadePreco">R$ 159,00</p>
+          <button class="view-details">Ver Detalhes</button>
+        </div>
+      </div>
+    </main>
+
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-left">
+          <img
+            id="modalImage"
+            src=""
+            alt="Produto Ampliado"
+            class="modal-image"
+          />
+        </div>
+        <div class="modal-right">
+          <h2 id="modalTitle">Título do Produto</h2>
+          <p class="modal-price" id="modalPrice">R$ 0,00</p>
+          <p id="modalDescription">Descrição detalhada do Produto</p>
+
+          <hr style="border-top: 1px solid #eee; margin: 20px 0" />
+
+          <div class="options-group">
+            <label for="size">Tamanho:</label>
+            <select id="size" name="size">
+              <option value="P">P</option>
+              <option value="M">M</option>
+              <option value="G">G</option>
+              <option value="GG">GG</option>
+            </select>
+          </div>
+
+          <div class="options-group" style="margin-top: 15px">
+            <label for="quantity">Quantidade:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value="1"
+              min="1"
+              max="10"
+              style="width: 50px"
+            />
+          </div>
+
+          <button class="add-to-cart">Adicionar ao Carrinho</button>
+        </div>
+      </div>
     </div>
 
+    <footer>
+      <div class="footer">
+        <h2>Loja KonaWai</h2>
+        <p>Endereço: Rua Caraguatatuba, nº 20</p>
+        <p>CEP: 12565-258</p>
+        <p>Telefone: (12) 3888-6828</p>
+        <div class="social">
+          <a href="https://www.facebook.com" target="_blank"
+            ><img
+              src="img/facebook-circle-logo-png.png"
+              alt="Facebook"
+              class="socialimg"
+          /></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><img
+              src="img/Instagram_icon.png"
+              alt="Instagram"
+              class="socialimg"
+          /></a>
+          <a href="https://www.twitter.com" target="_blank"
+            ><img src="img/x-icon.png" alt="Twitter" class="socialimg"
+          /></a>
+        </div>
+        <div class="copy">
+          <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
 
-        <div id="productModal" class="modal">
-            <div class="modal-content"> 
-                <div class="modal-left"> 
-                    <img id="modalImage" src="" alt="Produto Ampliado" class="modal-image">
-                </div>
-                <div class="modal-right">
-                    <span class="close">&times;</span>
-                    <h2 id="modalTitle">Título do Produto</h2>
-                    <p id="modalDescription">Descrição do Produto</p>
-                    
-                    <label for="quantity">Quantidade:</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 50px;">
-        
-                    <label for="size">Tamanho:</label>
-                    <select id="size" name="size">
-                        <option value="P">P</option>
-                        <option value="M">M</option>
-                        <option value="G">G</option>
-                        <option value="GG">GG</option>
-                    </select>
+    <script>
+      // Seletores de elementos
+      const viewDetailsButtons = document.querySelectorAll(".view-details");
+      const modal = document.getElementById("productModal");
+      const modalImage = document.getElementById("modalImage");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDescription = document.getElementById("modalDescription");
+      const modalPrice = document.getElementById("modalPrice");
+      const closeModal = document.querySelector(".close");
+      const addToCartButton = document.querySelector(".add-to-cart");
 
+      // Função para abrir o modal
+      function openModal(item) {
+        // Pega os dados dos data-attributes do produto clicado
+        const title = item.dataset.title;
+        const price = item.dataset.price;
+        const imgSrc = item.dataset.img;
+        const description = item.dataset.description;
 
+        // Preenche o modal
+        modalImage.src = imgSrc;
+        modalTitle.textContent = title;
+        modalPrice.textContent = `R$ ${price.replace(".", ",")}`; // Formata o preço
+        modalDescription.textContent = description;
 
-        
-                    <button class="add-to-cart">Adicionar ao Carrinho</button>
-                    <script>
-                        const novidades = document.querySelectorAll('.novidadeimg');
-                        const modal = document.getElementById('productModal');
-                        const modalImage = document.getElementById('modalImage');
-                        const modalTitle = document.getElementById('modalTitle');
-                        const modalDescription = document.getElementById('modalDescription');
-                        const closeModal = document.querySelector('.close');
-                
-                        // Função para exibir o modal com animação
-                        function openModal(imgSrc, title, price) {
-                            modalImage.src = imgSrc;
-                            modalTitle.textContent = title;
-                            modalDescription.textContent = `Este é o ${title}, disponível por ${price}. Aproveite a oferta e leve o seu!`;
-                
-                            // Exibe o modal com classe de animação
-                            modal.classList.add('show');
-                        }
-                
-                        // Adiciona evento de clique em cada novidade
-                        novidades.forEach((novidade) => {
-                            novidade.addEventListener('click', (event) => {
-                                const item = event.currentTarget.closest('.novidade');
-                                const title = item.querySelector('h2').textContent;
-                                const price = item.querySelector('.NovidadePreco').textContent;
-                                const imgSrc = item.querySelector('img').src;
-                
-                                openModal(imgSrc, title, price);
-                            });
-                        });
-                
-                        // Fechar o modal ao clicar no 'X' ou fora dele
-                        closeModal.addEventListener('click', () => {
-                            modal.classList.remove('show');
-                        });
-                
-                        window.addEventListener('click', (event) => {
-                            if (event.target === modal) {
-                                modal.classList.remove('show');
-                            }
-                        });
-                    </script>
-                    
-                </div>
-            </div>             
-        </div>    
-    
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
-        <div class="elfsight-app-02d5008f-6ee7-4ece-bed7-cdb7a5e8dd35" data-elfsight-app-lazy></div>
-            
-                <footer>
-                    <div class="footer">
-                        <h2>Loja KonaWai</h2>
-                        <p>Endereço: Rua Caraguatatuba, nº 20</p>
-                        <p>CEP: 12565-258</p>
-                        <p>Telefone: (12) 3888-6828</p>
-                        <div class="social">
-                            <a href="https://www.facebook.com" target="_blank"><img src="img/facebook-circle-logo-png.png" alt="Facebook" class="socialimg"></a>
-                            <a href="https://www.instagram.com" target="_blank"><img src="img/Instagram_icon.png" alt="Instagram" class="socialimg"></a>
-                            <a href="https://www.twitter.com" target="_blank"><img src="img/x-icon.png" alt="Twitter" class="socialimg"></a>
-                        </div>
-                        <div class="copy">
-                            <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
-                        </div>    
-                    </div>
-                </footer>
-                    
-</body>
+        // Exibe o modal
+        modal.style.display = "block";
+        setTimeout(() => {
+          modal.classList.add("show"); // Aplica a animação
+        }, 10); // Pequeno delay para garantir que o display:block seja aplicado
+
+        // Exemplo de ação ao adicionar ao carrinho (pode ser expandido)
+        addToCartButton.onclick = () => {
+          const size = document.getElementById("size").value;
+          const quantity = document.getElementById("quantity").value;
+          alert(
+            `Adicionado ao carrinho: ${quantity} x ${title} (Tamanho: ${size})!`
+          );
+          closeModalFunc();
+        };
+      }
+
+      // Função para fechar o modal
+      function closeModalFunc() {
+        modal.classList.remove("show");
+        // Oculta completamente após a animação de fade-out
+        setTimeout(() => {
+          modal.style.display = "none";
+        }, 400); // 400ms = tempo da transição no CSS
+      }
+
+      // Adiciona o evento de clique em CADA botão "Ver Detalhes"
+      viewDetailsButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          // Encontra o elemento pai (.novidade)
+          const item = event.currentTarget.closest(".novidade");
+          openModal(item);
+        });
+      });
+
+      // Adiciona o evento de hover para ZOOM na imagem na lista de produtos
+      const productCards = document.querySelectorAll(".novidade");
+      productCards.forEach((card) => {
+        const img = card.querySelector(".novidadeimg");
+        card.addEventListener("mouseenter", () => {
+          card.style.transform = "translateY(-5px)"; // Efeito de elevação
+          card.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.2)";
+          img.style.transform = "scale(1.05)"; // Efeito de zoom na imagem
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "translateY(0)";
+          card.style.boxShadow = "5px 5px 5px #b4b3b3";
+          img.style.transform = "scale(1)";
+        });
+      });
+
+      // Fechar o modal
+      closeModal.addEventListener("click", closeModalFunc);
+
+      // Fechar o modal ao clicar fora dele
+      window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeModalFunc();
+        }
+      });
+
+      // Simulação de Carrinho
+      document.getElementById("openCart").addEventListener("click", () => {
+        alert(
+          "Funcionalidade do carrinho ativada! (Implemente aqui a lógica do seu carrinho)"
+        );
+      });
+    </script>
+    <script
+      src="https://static.elfsight.com/platform/platform.js"
+      async
+    ></script>
+    <div
+      class="elfsight-app-02d5008f-6ee7-4ece-bed7-cdb7a5e8dd35"
+      data-elfsight-app-lazy
+    ></div>
+  </body>
 </html>

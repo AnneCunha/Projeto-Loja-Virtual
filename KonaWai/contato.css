@@ -1,33 +1,180 @@
-.fundadoras{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 50px;
-    margin-bottom: 50px;
+/* ======================================= */
+/* ESTILOS DE PÁGINAS (contato.css) */
+/* ======================================= */
+
+.fundadoras {
+  /* Centraliza a seção principal de fundadoras */
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 0 5%;
 }
-.fundadora{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.fundadora {
+  /* Container interno para a foto, texto e logo */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ajustado para melhor espaçamento */
+  max-width: 1200px; /* Limita a largura em telas grandes */
+  width: 100%;
+  gap: 30px; /* Espaço entre os elementos */
 }
-.fundadoraimg2{
+
+.fundadora-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1; /* Ocupa o espaço restante */
+}
+
+/* Imagem Principal (Fundadoras) */
+.fundadoraimg1 {
+  max-width: 400px; /* Reduzido para melhor balanceamento */
+  width: 100%;
+  height: auto;
+  border: 6px double #e0b7b5;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 3px 3px 5px 5px gray;
+  margin: 20px 0; /* Ajustado margem */
+  flex-shrink: 0; /* Não encolhe */
+}
+
+/* Imagem Secundária (Logo) */
+.fundadoraimg2 {
+  max-width: 200px; /* Reduzido o tamanho da logo */
+  max-height: 200px;
+  border: 6px double #e0b7b5;
+  border-radius: 50%; /* Adicionado arredondamento para a logo */
+  box-shadow: 5px 5px 5px 5px gray;
+  margin-top: 20px;
+}
+
+/* Texto da Fundadora */
+.FundadoraFonte {
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 20px 0;
+  cursor: default;
+  text-align: justify; /* Melhora a leitura do texto longo */
+}
+
+/* Estilos para os widgets de redes sociais */
+.social-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 5%;
+}
+
+/* --- Responsividade (contato.css) --- */
+@media (max-width: 992px) {
+  .fundadoraimg1 {
     max-width: 300px;
-    max-height: 300px;
-    border: 6px double #E0B7B5;
-    box-shadow: 5px 5px 5px 5px gray;
-    margin: 20px;
+  }
+  .FundadoraFonte {
+    font-size: 16px;
+  }
 }
-.fundadoraimg1{
-    max-width: 600px;
-    max-height: 600px;
-    border: 6px double #E0B7B5;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 3px 3px 5px 5px gray;
-    margin: 20px;
+
+@media (max-width: 768px) {
+  .fundadora {
+    flex-direction: column; /* Empilha foto e texto */
+    align-items: center;
+    text-align: center;
+  }
+
+  .fundadoraimg1 {
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .fundadora-texto {
+    align-items: center;
+  }
 }
-.FundadoraFonte{
-    font-weight: 300;
-    font-size: 18px;
-    margin: 20px;
-    cursor: default;
+
+@media (max-width: 480px) {
+  .fundadoraimg1 {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .fundadoraimg2 {
+    max-width: 150px;
+    max-height: 150px;
+  }
+  .FundadoraFonte {
+    font-size: 15px;
+  }
+}
+/* ... (Estilos globais como html, body, h1, etc.) ... */
+
+.header {
+  background-color: #f5dfdf;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 2px;
+  border-color: #e0b7b5;
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  margin: 0 20px;
+}
+
+/* Estilo unificado para o link de navegação <a> */
+.ButtonHome {
+  background-color: #e0b7b5;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #b4b3b3;
+  transition: background-color 1s;
+}
+
+.ButtonHome:hover {
+  background-color: #b3d4e7;
+}
+
+/* ... (Estilos de footer e responsividade do header/footer) ... */
+
+@media (max-width: 768px) {
+  /* Mostra o botão hambúrguer */
+  .menu-toggle {
+    display: block;
+    /* ... outros estilos ... */
+  }
+
+  /* Menu vertical */
+  .menu {
+    /* ... outros estilos de menu vertical ... */
+    display: none;
+  }
+  .menu.active {
+    display: flex;
+  }
+
+  .ButtonHome {
+    width: 100%;
+    /* ... outros estilos de botão mobile ... */
+  }
 }

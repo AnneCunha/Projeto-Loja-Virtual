@@ -1,210 +1,432 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loja KonaWai | Saídas de Praia</title>
-    <link rel="stylesheet" href="biquini.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/logo.jpg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="header">
-        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
-        <div class="menu">
-            <button class="ButtonHome"><a href="home.html" class="linkagem">Home</a></button>
-            <button class="ButtonHome"><a href="produtos.html" class="linkagem">Produtos</a></button>
-            <button class="ButtonHome"><a href="contato.html" class="linkagem">Sobre Nós</a></button>
+    <link rel="stylesheet" href="biquini.css" />
+    <link rel="icon" type="image/png" href="img/logo.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="home.html" aria-label="Página inicial da Loja KonaWai">
+        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg" />
+      </a>
+
+      <nav class="menu">
+        <a href="home.html" class="ButtonHome linkagem">Home</a>
+        <a href="produtos.html" class="ButtonHome linkagem">Produtos</a>
+        <a href="contato.html" class="ButtonHome linkagem">Sobre Nós</a>
+      </nav>
+
+      <button class="Carrinho" aria-label="Abrir Carrinho de Compras">
+        <img
+          src="img/shopping_10719046.png"
+          alt="Ícone de carrinho de compras"
+          class="CarrinhoImg"
+        />
+      </button>
+    </header>
+
+    <main>
+      <h1>Saída de Praia</h1>
+
+      <div class="product-grid">
+        <div
+          class="novidade"
+          data-name="Saída Verde"
+          data-price="R$ 120,00"
+          data-img="img/saida1.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida1.jpg"
+            alt="Saída de praia verde"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Verde</h2>
+          <p class="NovidadePreco">R$ 120,00</p>
         </div>
+        <div
+          class="novidade"
+          data-name="Saída Azul"
+          data-price="R$ 150,00"
+          data-img="img/saida2.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida2.jpg"
+            alt="Saída de praia azul"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Azul</h2>
+          <p class="NovidadePreco">R$ 150,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Preta Longa"
+          data-price="R$ 230,00"
+          data-img="img/saida3.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida3.jpg"
+            alt="Saída de praia preta"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Preta</h2>
+          <p class="NovidadePreco">R$ 230,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Preta Curta"
+          data-price="R$ 100,00"
+          data-img="img/saida4.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida4.jpg"
+            alt="Saída de praia preta"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Preta</h2>
+          <p class="NovidadePreco">R$ 100,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Cinza"
+          data-price="R$ 200,00"
+          data-img="img/saida5.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida5.jpg"
+            alt="Saída de praia cinza"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Cinza</h2>
+          <p class="NovidadePreco">R$ 200,00</p>
+        </div>
+         
 
-        <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
-    </div>
+        <div
+          class="novidade"
+          data-name="Saída Branca Longa"
+          data-price="R$ 200,00"
+          data-img="img/saida6.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida6.jpg"
+            alt="Saída de praia branca"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Branca</h2>
+          <p class="NovidadePreco">R$ 200,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Azul Clara"
+          data-price="R$ 220,00"
+          data-img="img/saida7.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida7.jpg"
+            alt="Saída de praia azul"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Azul</h2>
+          <p class="NovidadePreco">R$ 220,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Verde Curta"
+          data-price="R$ 130,00"
+          data-img="img/saida8.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida8.jpg"
+            alt="Saída de praia verde"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Verde</h2>
+          <p class="NovidadePreco">R$ 130,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Bege Renda"
+          data-price="R$ 190,99"
+          data-img="img/saida10.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida10.jpg"
+            alt="Saída de praia beje"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Bege</h2>
+          <p class="NovidadePreco">R$ 190,99</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Branca Renda"
+          data-price="R$ 179,00"
+          data-img="img/saida12.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida12.jpg"
+            alt="Saída de praia branca"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Branca</h2>
+          <p class="NovidadePreco">R$ 179,00</p>
+        </div>
+         
 
+        <div
+          class="novidade"
+          data-name="Saída Florida"
+          data-price="R$ 140,00"
+          data-img="img/saida23.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida23.jpg"
+            alt="Saída de praia florada"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Florida</h2>
+          <p class="NovidadePreco">R$ 140,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Preta Transparente"
+          data-price="R$ 125,00"
+          data-img="img/saida14.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida14.jpg"
+            alt="Saída de praia preta"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Preta</h2>
+          <p class="NovidadePreco">R$ 125,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Branca Tule"
+          data-price="R$ 140,00"
+          data-img="img/saida15.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida15.jpg"
+            alt="Saída de praia branca"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Branca</h2>
+          <p class="NovidadePreco">R$ 140,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Verde Estampada"
+          data-price="R$ 155,99"
+          data-img="img/saida16.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida16.jpg"
+            alt="Saída de praia verde"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Verde</h2>
+          <p class="NovidadePreco">R$ 155,99</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Saída Branca Aberta"
+          data-price="R$ 159,00"
+          data-img="img/saida17.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/saida17.jpg"
+            alt="Saída de praia branca"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Saída Branca</h2>
+          <p class="NovidadePreco">R$ 159,00</p>
+        </div>
+         
+      </div>
 
-        <h1>Saída de praia</h1>
-        <div class="novidades">
-            <div class="novidade">
-                <img src="img/saida1.jpg" alt="Novidade 1" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída verde</h2>
-                <p class="NovidadePreco">R$ 120,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida2.jpg" alt="Novidade 2" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída azul</h2>
-                <p class="NovidadePreco">R$ 150,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida3.jpg" alt="Novidade 3" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída preta</h2>
-                <p class="NovidadePreco">R$ 230,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida4.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída preta </h2>
-                <p class="NovidadePreco">R$ 100,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida5.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída cinza</h2>
-                <p class="NovidadePreco">R$ 200,00</p>
-            </div>   
-        </div> 
-    
-        <div class="novidades">
-            <div class="novidade">
-                <img src="img/saida6.jpg" alt="Novidade 1" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída branca</h2>
-                <p class="NovidadePreco">R$ 200,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida7.jpg" alt="Novidade 2" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída azul</h2>
-                <p class="NovidadePreco">R$ 220,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida8.jpg" alt="Novidade 3" class="novidadeimg">
-                <h2 class="NovidadeFonte"> Saída verde</h2>
-                <p class="NovidadePreco">R$ 130,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida10.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída beje</h2>
-                <p class="NovidadePreco">R$ 190,99</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida12.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída branca</h2>
-                <p class="NovidadePreco">R$ 179,00</p>
-            </div>   
-        </div> 
-        <div class="novidades">
-            <div class="novidade">
-                <img src="img/saida23.jpg" alt="Novidade 1" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída florada</h2>
-                <p class="NovidadePreco">R$ 140,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida14.jpg" alt="Novidade 2" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída preta</h2>
-                <p class="NovidadePreco">R$ 125,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida15.jpg" alt="Novidade 3" class="novidadeimg">
-                <h2 class="NovidadeFonte"> Saída branca</h2>
-                <p class="NovidadePreco">R$ 140,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida16.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída verde</h2>
-                <p class="NovidadePreco">R$ 155,99</p>
-            </div>
-            <div class="novidade">
-                <img src="img/saida17.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Saída branca </h2>
-                <p class="NovidadePreco">R$ 159,00</p>
-            </div>   
-        </div> 
+      <div
+        id="productModal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <div class="modal-content">
+          <div class="modal-left">
+            <img
+              id="modalImage"
+              src=""
+              alt="Produto Ampliado"
+              class="modal-image"
+            />
+          </div>
+          <div class="modal-right">
+            <button class="close" aria-label="Fechar Modal de Produto">
+              &times;
+            </button>
+            <h2 id="modalTitle">Título do Produto</h2>
+            <p id="modalPrice" class="modal-price"></p>
+            <p id="modalDescription">Descrição do Produto</p>
 
+            <div class="options-group">
+              <label for="quantity">Quantidade:</label>
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                value="1"
+                min="1"
+                style="width: 50px"
+              />
 
-
-
-
-
-        <div id="productModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-left">
-                    <img id="modalImage" src="" alt="Produto Ampliado" class="modal-image">
-                </div>
-                <div class="modal-right">
-                    <span class="close">&times;</span>
-                    <h2 id="modalTitle">Título do Produto</h2>
-                    <p id="modalDescription">Descrição do Produto</p>
-                    
-                    <label for="quantity">Quantidade:</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 50px;">
-        
-                    <label for="size">Tamanho:</label>
-                    <select id="size" name="size">
-                        <option value="P">P</option>
-                        <option value="M">M</option>
-                        <option value="G">G</option>
-                        <option value="GG">GG</option>
-                    </select>
-        
-                    <button class="add-to-cart">Adicionar ao Carrinho</button>
-                    <script>
-                        const novidades = document.querySelectorAll('.novidadeimg');
-                        const modal = document.getElementById('productModal');
-                        const modalImage = document.getElementById('modalImage');
-                        const modalTitle = document.getElementById('modalTitle');
-                        const modalDescription = document.getElementById('modalDescription');
-                        const closeModal = document.querySelector('.close');
-                
-                        // Função para exibir o modal com animação
-                        function openModal(imgSrc, title, price) {
-                            modalImage.src = imgSrc;
-                            modalTitle.textContent = title;
-                            modalDescription.textContent = `Este é o ${title}, disponível por ${price}. Aproveite a oferta e leve o seu!`;
-                
-                            // Exibe o modal com classe de animação
-                            modal.classList.add('show');
-                        }
-                
-                        // Adiciona evento de clique em cada novidade
-                        novidades.forEach((novidade) => {
-                            novidade.addEventListener('click', (event) => {
-                                const item = event.currentTarget.closest('.novidade');
-                                const title = item.querySelector('h2').textContent;
-                                const price = item.querySelector('.NovidadePreco').textContent;
-                                const imgSrc = item.querySelector('img').src;
-                
-                                openModal(imgSrc, title, price);
-                            });
-                        });
-                
-                        // Fechar o modal ao clicar no 'X' ou fora dele
-                        closeModal.addEventListener('click', () => {
-                            modal.classList.remove('show');
-                        });
-                
-                        window.addEventListener('click', (event) => {
-                            if (event.target === modal) {
-                                modal.classList.remove('show');
-                            }
-                        });
-                     </script>
-
-                </div>
+              <label for="size">Tamanho:</label>
+              <select id="size" name="size">
+                <option value="P">P</option>
+                <option value="M">M</option>
+                <option value="G">G</option>
+                <option value="GG">GG</option>
+              </select>
             </div>
-        </div>   
-                    
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
-        <div class="elfsight-app-02d5008f-6ee7-4ece-bed7-cdb7a5e8dd35" data-elfsight-app-lazy></div>
-                
-                    <footer>
-                        <div class="footer">
-                            <h2>Loja KonaWai</h2>
-                            <p>Endereço: Rua Caraguatatuba, nº 20</p>
-                            <p>CEP: 12565-258</p>
-                            <p>Telefone: (12) 3888-6828</p>
-                            <div class="social">
-                                <a href="https://www.facebook.com" target="_blank"><img src="/img/facebook-circle-logo-png.png" alt="Facebook" class="socialimg"></a>
-                                <a href="https://www.instagram.com" target="_blank"><img src="/img/Instagram_icon.png" alt="Instagram" class="socialimg"></a>
-                                <a href="https://www.twitter.com" target="_blank"><img src="/img/x-icon.png" alt="Twitter" class="socialimg"></a>
-                            </div>
-                            <div class="copy">
-                                <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
-                            </div>    
-                        </div>
 
+            <button class="add-to-cart">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+    </main>
 
+    <script
+      src="https://static.elfsight.com/platform/platform.js"
+      async
+    ></script>
+    <div
+      class="elfsight-app-02d5008f-6ee7-4ece-bed7-cdb7a5e8dd35"
+      data-elfsight-app-lazy
+    ></div>
 
-    </div>    
-</body>
+    <footer class="footer">
+      <div class="footer-content">
+        <h2>Loja KonaWai</h2>
+        <p>Endereço: Rua Caraguatatuba, nº 20</p>
+        <p>CEP: 12565-258</p>
+        <p>Telefone: <a href="tel:+551238886828">(12) 3888-6828</a></p>
+        <div class="social">
+          <a href="https://www.facebook.com" target="_blank"
+            ><img
+              src="img/facebook-circle-logo-png.png"
+              alt="Facebook"
+              class="socialimg"
+          /></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><img
+              src="img/Instagram_icon.png"
+              alt="Instagram"
+              class="socialimg"
+          /></a>
+          <a href="https://www.twitter.com" target="_blank"
+            ><img src="img/x-icon.png" alt="Twitter" class="socialimg"
+          /></a>
+        </div>
+      </div>
+      <div class="copy">
+        <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>
+         
+      </div>
+         
+    </footer>
+
+    <script>
+      // O JS agora busca o elemento .novidade (pai) e usa os data-atributos
+      const novidades = document.querySelectorAll(".novidade");
+      const modal = document.getElementById("productModal");
+      const modalImage = document.getElementById("modalImage");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDescription = document.getElementById("modalDescription");
+      const modalPrice = document.getElementById("modalPrice");
+      const closeModal = document.querySelector(".modal .close");
+
+      // Função para exibir o modal com animação
+      function openModal(imgSrc, title, price) {
+        modalImage.src = imgSrc;
+        modalTitle.textContent = title;
+        modalPrice.textContent = price; // Exibe o preço no modal
+        modalDescription.textContent = `Este é o ${title}, disponível por ${price}. Aproveite a oferta e leve o seu!`;
+
+        modal.style.display = "flex"; // Torna o modal visível
+        setTimeout(() => {
+          modal.classList.add("show"); // Inicia a animação
+        }, 10);
+      }
+
+      function closeProductModal() {
+        modal.classList.remove("show");
+        setTimeout(() => {
+          modal.style.display = "none";
+        }, 400); // Garante que a transição termine antes de ocultar
+      }
+
+      // Adiciona evento de clique em cada novidade
+      novidades.forEach((novidade) => {
+        novidade.addEventListener("click", () => {
+          // Obtém dados dos atributos data-
+          const title = novidade.getAttribute("data-name");
+          const price = novidade.getAttribute("data-price");
+          const imgSrc = novidade.getAttribute("data-img");
+
+          openModal(imgSrc, title, price);
+        });
+      });
+
+      // Fechar o modal ao clicar no 'X' ou fora dele
+      closeModal.addEventListener("click", closeProductModal);
+
+      window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeProductModal();
+        }
+      });
+    </script>
+  </body>
 </html>

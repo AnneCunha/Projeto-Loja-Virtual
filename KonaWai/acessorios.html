@@ -1,209 +1,377 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loja KonaWai | Acessórios</title>
-    <link rel="stylesheet" href="biquini.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/logo.jpg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="header">
-        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
-        <div class="menu">
-            <button class="ButtonHome"><a href="home.html" class="linkagem">Home</a></button>
-            <button class="ButtonHome"><a href="produtos.html" class="linkagem">Produtos</a></button>
-            <button class="ButtonHome"><a href="contato.html" class="linkagem">Sobre Nós</a></button>
+    <link rel="stylesheet" href="biquini.css" />
+    <link rel="icon" type="image/png" href="img/logo.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="home.html" aria-label="Página inicial da Loja KonaWai">
+        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg" />
+      </a>
+
+      <nav class="menu">
+        <a href="home.html" class="ButtonHome linkagem">Home</a>
+        <a href="produtos.html" class="ButtonHome linkagem">Produtos</a>
+        <a href="contato.html" class="ButtonHome linkagem">Sobre Nós</a>
+      </nav>
+
+      <button class="Carrinho" aria-label="Abrir Carrinho de Compras">
+        <img
+          src="img/shopping_10719046.png"
+          alt="Ícone de carrinho de compras"
+          class="CarrinhoImg"
+        />
+      </button>
+    </header>
+       
+
+    <main>
+      <h1>Acessórios</h1>
+
+      <div class="product-grid">
+        <div
+          class="novidade"
+          data-name="Colar Sol"
+          data-price="R$ 150,00"
+          data-img="img/ace1.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace1.jpg" alt="Colar sol" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Colar Sol</h2>
+          <p class="NovidadePreco">R$ 150,00</p>
         </div>
+        <div
+          class="novidade"
+          data-name="Colar Estrela"
+          data-price="R$ 130,00"
+          data-img="img/ace2.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace2.jpg" alt="Colar estrela" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Colar Estrela</h2>
+          <p class="NovidadePreco">R$ 130,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Colar Concha"
+          data-price="R$ 165,00"
+          data-img="img/ace3.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace3.jpg" alt="Colar concha" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Colar Concha</h2>
+          <p class="NovidadePreco">R$ 165,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Colar Estrela Dupla"
+          data-price="R$ 159,99"
+          data-img="img/ace6.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace6.jpg" alt="Colar estrela" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Colar Estrela</h2>
+          <p class="NovidadePreco">R$ 159,99</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Colar Concha Simples"
+          data-price="R$ 120,00"
+          data-img="img/ace7.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace7.jpg" alt="Colar concha" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Colar Concha</h2>
+          <p class="NovidadePreco">R$ 120,00</p>
+        </div>
+         
 
-        <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
-    </div>    
+        <div
+          class="novidade"
+          data-name="Brinco Concha Dourada"
+          data-price="R$ 145,00"
+          data-img="img/ace4.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace4.jpg" alt="Brinco concha" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Brinco Concha</h2>
+          <p class="NovidadePreco">R$ 145,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Brinco Estrela Mar"
+          data-price="R$ 180,00"
+          data-img="img/ace5.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace5.jpg" alt="Brinco estrela" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Brinco Estrela</h2>
+          <p class="NovidadePreco">R$ 180,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Brinco Concha Minimalista"
+          data-price="R$ 150,00"
+          data-img="img/ace13.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace13.jpg" alt="Brinco concha" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Brinco Concha</h2>
+          <p class="NovidadePreco">R$ 150,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Brinco com Pérola"
+          data-price="R$ 190,99"
+          data-img="img/ace14.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img
+            src="img/ace14.jpg"
+            alt="Brinco com pérola"
+            class="novidadeimg"
+          />
+          <h2 class="NovidadeFonte">Brinco c/Pérola</h2>
+          <p class="NovidadePreco">R$ 190,99</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Brinco Lua"
+          data-price="R$ 120,00"
+          data-img="img/ace12.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace12.jpg" alt="Brinco lua" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Brinco Lua</h2>
+          <p class="NovidadePreco">R$ 120,00</p>
+        </div>
+         
 
-        <h1>Acessórios</h1>
-        <div class="novidades">
-            <div class="novidade">
-                <img src="img/ace1.jpg" alt="Novidade 1" class="novidadeimg">
-                <h2 class="NovidadeFonte">Colar sol</h2>
-                <p class="NovidadePreco">R$ 150,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace2.jpg" alt="Novidade 2" class="novidadeimg">
-                <h2 class="NovidadeFonte">colar estrela</h2>
-                <p class="NovidadePreco">R$ 130,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace3.jpg" alt="Novidade 3" class="novidadeimg">
-                <h2 class="NovidadeFonte">Colar concha</h2>
-                <p class="NovidadePreco">R$ 165,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace6.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">colar estrela</h2>
-                <p class="NovidadePreco">R$ 159,99</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace7.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Colar concha</h2>
-                <p class="NovidadePreco">R$ 120,00</p>
-            </div>   
-        </div> 
-    
-        <div class="novidades">
-            <div class="novidade">
-                <img src="img/ace4.jpg" alt="Novidade 1" class="novidadeimg">
-                <h2 class="NovidadeFonte">Brinco concha</h2>
-                <p class="NovidadePreco">R$ 145,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace5.jpg" alt="Novidade 2" class="novidadeimg">
-                <h2 class="NovidadeFonte">Brinco estrela</h2>
-                <p class="NovidadePreco">R$ 180,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace13.jpg" alt="Novidade 3" class="novidadeimg">
-                <h2 class="NovidadeFonte"> Brinco concha</h2>
-                <p class="NovidadePreco">R$ 150,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace14.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Brinco c/perola</h2>
-                <p class="NovidadePreco">R$ 190,99</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace12.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Brinco lua</h2>
-                <p class="NovidadePreco">R$ 120,00</p>
-            </div>   
-        </div> 
-        <div class="novidades">
-            <div class="novidade">
-                <img src="img/ace15.jpg" alt="Novidade 1" class="novidadeimg">
-                <h2 class="NovidadeFonte">Brinco conchas</h2>
-                <p class="NovidadePreco">R$ 110,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace10.jpg" alt="Novidade 2" class="novidadeimg">
-                <h2 class="NovidadeFonte">Brinco perolado</h2>
-                <p class="NovidadePreco">R$ 135,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace11.jpg" alt="Novidade 3" class="novidadeimg">
-                <h2 class="NovidadeFonte"> Brinco roxo</h2>
-                <p class="NovidadePreco">R$ 100,00</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace8.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Brinco sol</h2>
-                <p class="NovidadePreco">R$ 145,99</p>
-            </div>
-            <div class="novidade">
-                <img src="img/ace9.jpg" alt="Novidade 4" class="novidadeimg">
-                <h2 class="NovidadeFonte">Pulseira
-                    concha
-                </h2>
-                <p class="NovidadePreco">R$ 139,00</p>
-            </div>   
-        </div> 
+        <div
+          class="novidade"
+          data-name="Brinco Cascatas de Conchas"
+          data-price="R$ 110,00"
+          data-img="img/ace15.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace15.jpg" alt="Brinco conchas" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Brinco Conchas</h2>
+          <p class="NovidadePreco">R$ 110,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Brinco Perolado"
+          data-price="R$ 135,00"
+          data-img="img/ace10.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace10.jpg" alt="Brinco perolado" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Brinco Perolado</h2>
+          <p class="NovidadePreco">R$ 135,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Brinco Roxo"
+          data-price="R$ 100,00"
+          data-img="img/ace11.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace11.jpg" alt="Brinco roxo" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Brinco Roxo</h2>
+          <p class="NovidadePreco">R$ 100,00</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Brinco Sol Dourado"
+          data-price="R$ 145,99"
+          data-img="img/ace8.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace8.jpg" alt="Brinco sol" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Brinco Sol</h2>
+          <p class="NovidadePreco">R$ 145,99</p>
+        </div>
+        <div
+          class="novidade"
+          data-name="Pulseira Concha"
+          data-price="R$ 139,00"
+          data-img="img/ace9.jpg"
+          tabindex="0"
+          role="button"
+        >
+          <img src="img/ace9.jpg" alt="Pulseira concha" class="novidadeimg" />
+          <h2 class="NovidadeFonte">Pulseira Concha</h2>
+          <p class="NovidadePreco">R$ 139,00</p>
+        </div>
+         
+      </div>
+    </main>
 
+    <div
+      id="productModal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-content">
+        <div class="modal-left">
+          <img
+            id="modalImage"
+            src=""
+            alt="Produto Ampliado"
+            class="modal-image"
+          />
+        </div>
+        <div class="modal-right">
+          <button class="close" aria-label="Fechar Modal de Produto">
+            &times;
+          </button>
+          <h2 id="modalTitle">Título do Produto</h2>
+          <p id="modalPrice" class="modal-price"></p>
+          <p id="modalDescription">Descrição do Produto</p>
 
+          <div class="options-group">
+            <label for="quantity">Quantidade:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value="1"
+              min="1"
+              style="width: 50px"
+            />
 
+            <label for="size">Tamanho:</label>
+            <select id="size" name="size">
+              <option value="Unico">Tamanho Único</option>
+              <option value="Pequeno">Pequeno</option>
+              <option value="Medio">Médio</option>
+              <option value="Grande">Grande</option>
+            </select>
+          </div>
 
+          <button class="add-to-cart">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+           
 
+    <footer class="footer">
+      <div class="footer-content">
+        <h2>Loja KonaWai</h2>
+        <p>Endereço: Rua Caraguatatuba, nº 20</p>
+        <p>CEP: 12565-258</p>
+        <p>Telefone: <a href="tel:+551238886828">(12) 3888-6828</a></p>
+        <div class="social">
+          <a href="https://www.facebook.com" target="_blank"
+            ><img
+              src="img/facebook-circle-logo-png.png"
+              alt="Facebook"
+              class="socialimg"
+          /></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><img
+              src="img/Instagram_icon.png"
+              alt="Instagram"
+              class="socialimg"
+          /></a>
+          <a href="https://www.twitter.com" target="_blank"
+            ><img src="img/x-icon.png" alt="Twitter" class="socialimg"
+          /></a>
+        </div>
+      </div>
+      <div class="copy">
+        <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>
+         
+      </div>
+         
+    </footer>
 
-        <div id="productModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-left">
-                    <img id="modalImage" src="" alt="Produto Ampliado" class="modal-image">
-                </div>
-                <div class="modal-right">
-                    <span class="close">&times;</span>
-                    <h2 id="modalTitle">Título do Produto</h2>
-                    <p id="modalDescription">Descrição do Produto</p>
-                    
-                    <label for="quantity">Quantidade:</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 50px;">
-        
-                    <label for="size">Tamanho:</label>
-                    <select id="size" name="size">
-                        <option value="P">P</option>
-                        <option value="M">M</option>
-                        <option value="G">G</option>
-                        <option value="GG">GG</option>
-                    </select>
-        
-                    <button class="add-to-cart">Adicionar ao Carrinho</button>
-                    <script>
-                        const novidades = document.querySelectorAll('.novidadeimg');
-                        const modal = document.getElementById('productModal');
-                        const modalImage = document.getElementById('modalImage');
-                        const modalTitle = document.getElementById('modalTitle');
-                        const modalDescription = document.getElementById('modalDescription');
-                        const closeModal = document.querySelector('.close');
-                
-                        // Função para exibir o modal com animação
-                        function openModal(imgSrc, title, price) {
-                            modalImage.src = imgSrc;
-                            modalTitle.textContent = title;
-                            modalDescription.textContent = `Este é o ${title}, disponível por ${price}. Aproveite a oferta e leve o seu!`;
-                
-                            // Exibe o modal com classe de animação
-                            modal.classList.add('show');
-                        }
-                
-                        // Adiciona evento de clique em cada novidade
-                        novidades.forEach((novidade) => {
-                            novidade.addEventListener('click', (event) => {
-                                const item = event.currentTarget.closest('.novidade');
-                                const title = item.querySelector('h2').textContent;
-                                const price = item.querySelector('.NovidadePreco').textContent;
-                                const imgSrc = item.querySelector('img').src;
-                
-                                openModal(imgSrc, title, price);
-                            });
-                        });
-                
-                        // Fechar o modal ao clicar no 'X' ou fora dele
-                        closeModal.addEventListener('click', () => {
-                            modal.classList.remove('show');
-                        });
-                
-                        window.addEventListener('click', (event) => {
-                            if (event.target === modal) {
-                                modal.classList.remove('show');
-                            }
-                        });
-                     </script>
-                </div>
-            </div>  
-        </div>         
-              
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
-        <div class="elfsight-app-02d5008f-6ee7-4ece-bed7-cdb7a5e8dd35" data-elfsight-app-lazy></div>
-                    <footer>
-                        <div class="footer">
-                            <h2>Loja KonaWai</h2>
-                            <p>Endereço: Rua Caraguatatuba, nº 20</p>
-                            <p>CEP: 12565-258</p>
-                            <p>Telefone: (12) 3888-6828</p>
-                            <div class="social">
-                                <a href="https://www.facebook.com" target="_blank"><img src="img/facebook-circle-logo-png.png" alt="Facebook" class="socialimg"></a>
-                                <a href="https://www.instagram.com" target="_blank"><img src="img/Instagram_icon.png" alt="Instagram" class="socialimg"></a>
-                                <a href="https://www.twitter.com" target="_blank"><img src="img/x-icon.png" alt="Twitter" class="socialimg"></a>
-                            </div>
-                            <div class="copy">
-                                <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
-                            </div>    
-                        </div>
+    <script
+      src="https://static.elfsight.com/platform/platform.js"
+      async
+    ></script>
+    <div
+      class="elfsight-app-02d5008f-6ee7-4ece-bed7-cdb7a5e8dd35"
+      data-elfsight-app-lazy
+    ></div>
 
+    <script>
+      const novidades = document.querySelectorAll(".novidade");
+      const modal = document.getElementById("productModal");
+      const modalImage = document.getElementById("modalImage");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalPrice = document.getElementById("modalPrice"); // Novo elemento de preço
+      const modalDescription = document.getElementById("modalDescription");
+      const closeModal = document.querySelector(".modal .close");
 
+      // Função para exibir o modal com animação
+      function openModal(imgSrc, title, price) {
+        modalImage.src = imgSrc;
+        modalTitle.textContent = title;
+        modalPrice.textContent = price;
+        modalDescription.textContent = `Este é o ${title}, perfeito para complementar seu look praia.`;
 
-    </div>    
-</body>
+        modal.style.display = "flex";
+        setTimeout(() => {
+          modal.classList.add("show");
+        }, 10);
+      }
+
+      function closeProductModal() {
+        modal.classList.remove("show");
+        setTimeout(() => {
+          modal.style.display = "none";
+        }, 400);
+      }
+
+      // Adiciona evento de clique em cada novidade
+      novidades.forEach((novidade) => {
+        novidade.addEventListener("click", () => {
+          // Obtém dados dos atributos data-
+          const title = novidade.getAttribute("data-name");
+          const price = novidade.getAttribute("data-price");
+          const imgSrc = novidade.getAttribute("data-img");
+
+          openModal(imgSrc, title, price);
+        });
+      });
+
+      // Fechar o modal ao clicar no 'X' ou fora dele
+      closeModal.addEventListener("click", closeProductModal);
+
+      window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeProductModal();
+        }
+      });
+    </script>
+  </body>
 </html>
