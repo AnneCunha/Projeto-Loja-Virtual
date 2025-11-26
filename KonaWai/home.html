@@ -17,19 +17,16 @@
 </head>
 <body>
     <div class="header">
-        <div class="menu-toggle">☰</div>
+    <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
+    <div class="menu">
+        <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Home</a></button>
+        <button class="ButtonHome"><a href="produtos.html" class="LinkagemHome">Produtos</a></button>
+        <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
+    </div>
+</div>
 
-        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
 
-        <div class="menu">
-            <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Home</a></button>
-            <button class="ButtonHome"><a href="produtos.html" class="LinkagemHome">Produtos</a></button>
-            <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
-        </div>
 
-        <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
-  
-    </div>    
     <h1>Categorias</h1>
     <div class="categorias">
         <div class="categoria">
@@ -220,5 +217,16 @@
             </div>    
         </div>
 </body>
+
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
 </html>
