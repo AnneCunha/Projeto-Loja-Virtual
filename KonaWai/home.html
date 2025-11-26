@@ -1,224 +1,443 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loja KonaWai | Home</title>
-    <link rel="stylesheet" href="home.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/logo.jpg">
+    <link rel="stylesheet" href="home.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="header">
-        <div class="menu-toggle">☰</div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:wght@400&family=Nunito:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
 
-        <img src="img/logo.jpg" alt="Logo da loja" class="logoimg">
+    <link rel="icon" type="image/png" href="img/logo.jpg" />
+  </head>
+  <body>
+    <header class="header">
+      <button class="menu-toggle" aria-label="Abrir Menu de Navegação">
+        ☰
+      </button>
 
-        <div class="menu">
-            <button class="ButtonHome"><a href="home.html" class="LinkagemHome">Home</a></button>
-            <button class="ButtonHome"><a href="produtos.html" class="LinkagemHome">Produtos</a></button>
-            <button class="ButtonHome"><a href="contato.html" class="LinkagemHome">Sobre Nós</a></button>
+      <a href="home.html" aria-label="Página inicial da Loja KonaWai">
+        <img src="img/logo.jpg" alt="Logo da Loja KonaWai" class="logoimg" />
+      </a>
+
+      <nav class="menu">
+        <a href="home.html" class="ButtonHome LinkagemHome">Home</a>
+        <a href="produtos.html" class="ButtonHome LinkagemHome">Produtos</a>
+        <a href="contato.html" class="ButtonHome LinkagemHome">Sobre Nós</a>
+      </nav>
+
+      <button class="Carrinho" aria-label="Abrir Carrinho de Compras">
+        <img
+          src="img/shopping_10719046.png"
+          alt="Ícone de carrinho de compras"
+          class="CarrinhoImg"
+        />
+      </button>
+    </header>
+
+    <main>
+      <h1>Categorias</h1>
+      <section class="categorias">
+        <a href="biquini.html" class="categoria" aria-label="Ver Biquínis">
+          <img
+            src="img/BikiniCategoria.jpeg"
+            alt="Modelo de biquíni em exibição"
+            class="categoriaimg"
+          />
+          <h2 class="CategoriaFonte">Biquínis</h2>
+        </a>
+
+        <a href="saida.html" class="categoria" aria-label="Ver Saídas de Praia">
+          <img
+            src="img/SDP.jpg"
+            alt="Modelo de saída de praia"
+            class="categoriaimg"
+          />
+          <h2 class="CategoriaFonte">Saída de Praia</h2>
+        </a>
+
+        <a href="acessorios.html" class="categoria" aria-label="Ver Acessórios">
+          <img
+            src="img/chapeu.jpeg"
+            alt="Chapéu de praia"
+            class="categoriaimg"
+          />
+          <h2 class="CategoriaFonte">Acessórios</h2>
+        </a>
+
+        <a href="canga.html" class="categoria" aria-label="Ver Cangas">
+          <img
+            src="img/Canga.jpg"
+            alt="Canga de praia colorida"
+            class="categoriaimg"
+          />
+          <h2 class="CategoriaFonte">Cangas</h2>
+        </a>
+      </section>
+
+      <hr />
+      <h1>Novidades</h1>
+      <section class="novidades-grid">
+        <div class="novidades">
+          <div
+            class="novidade"
+            data-name="Biquini 1"
+            data-price="R$ 100,00"
+            data-img="img/bikini1.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini1.jpg"
+              alt="Biquini cor azul e branco"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 1</h3>
+            <p class="NovidadePreco">R$ 100,00</p>
+          </div>
+          <div
+            class="novidade"
+            data-name="Biquini 2"
+            data-price="R$ 100,00"
+            data-img="img/bikini2.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini2.jpg"
+              alt="Biquini floral vermelho"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 2</h3>
+            <p class="NovidadePreco">R$ 100,00</p>
+          </div>
+          <div
+            class="novidade"
+            data-name="Biquini 3"
+            data-price="R$ 100,00"
+            data-img="img/bikini3.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini3.jpg"
+              alt="Biquini de cor sólida"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 3</h3>
+            <p class="NovidadePreco">R$ 100,00</p>
+          </div>
+          <div
+            class="novidade"
+            data-name="Biquini 4"
+            data-price="R$ 100,00"
+            data-img="img/bikini4.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini4.jpg"
+              alt="Biquini com estampa geométrica"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 4</h3>
+            <p class="NovidadePreco">R$ 100,00</p>
+          </div>
+          <div
+            class="novidade"
+            data-name="Biquini 5"
+            data-price="R$ 100,00"
+            data-img="img/bikini5.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini5.jpg"
+              alt="Biquini branco com detalhes"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 5</h3>
+            <p class="NovidadePreco">R$ 100,00</p>
+          </div>
         </div>
 
-        <button class="Carrinho"><img src="img/shopping_10719046.png" class="CarrinhoImg"></button>
-  
-    </div>    
-    <h1>Categorias</h1>
-    <div class="categorias">
-        <div class="categoria">
-            <img src="img/BikiniCategoria.jpeg" alt="Categoria 1" class="categoriaimg">
-            <h2 class="CategoriaFonte">
-                <a href="biquini.html" class="linkagemCategorias">Biquínis</a>
-            </h2>
-        </div>
-        
-        <div class="categoria">
-            <img src="img/SDP.jpg" alt="Categoria 2" class="categoriaimg">        
-            <h2 class="CategoriaFonte">
-                <a href="saida.html" class="linkagemCategorias">Saída de Praia</a>
-            </h2>
-        </div>      
-        
-        <div class="categoria">
-            <img src="img/chapeu.jpeg" alt="Categoria 3" class="categoriaimg">
-            <h2 class="CategoriaFonte">
-                <a href="acessorios.html" class="linkagemCategorias">Acessórios</a>
-            </h2>
-        </div>
-        
-        <div class="categoria">
-            <img src="img/Canga.jpg" alt="Categoria 4" class="categoriaimg">
-            <h2 class="CategoriaFonte">
-                <a href="canga.html" class="linkagemCategorias">Cangas</a>
-            </h2>
-        </div>
-    </div>  
-    
-    
-    <h1>Novidades</h1>
-    <div class="novidades">
-        <div class="novidade">
-            <img src="img/bikini1.jpg" alt="Novidade 1" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 1</h2>
+        <div class="novidades">
+          <div
+            class="novidade"
+            data-name="Biquini 6"
+            data-price="R$ 100,00"
+            data-img="img/bikini6.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini6.jpg"
+              alt="Biquini listrado colorido"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 6</h3>
             <p class="NovidadePreco">R$ 100,00</p>
-        </div>
-        <div class="novidade">
-            <img src="img/bikini2.jpg" alt="Novidade 2" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 2</h2>
+          </div>
+          <div
+            class="novidade"
+            data-name="Biquini 7"
+            data-price="R$ 100,00"
+            data-img="img/bikini7.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini7.jpg"
+              alt="Biquini vermelho liso"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 7</h3>
             <p class="NovidadePreco">R$ 100,00</p>
-        </div>
-        <div class="novidade">
-            <img src="img/bikini3.jpg" alt="Novidade 3" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 3</h2>
+          </div>
+          <div
+            class="novidade"
+            data-name="Biquini 8"
+            data-price="R$ 100,00"
+            data-img="img/bikini8.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini8.jpg"
+              alt="Biquini com estampa de folhagem"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 8</h3>
             <p class="NovidadePreco">R$ 100,00</p>
-        </div>
-        <div class="novidade">
-            <img src="img/bikini4.jpg" alt="Novidade 4" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 4</h2>
+          </div>
+          <div
+            class="novidade"
+            data-name="Biquini 9"
+            data-price="R$ 100,00"
+            data-img="img/bikini9jpg.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini9jpg.jpg"
+              alt="Biquini azul bebê"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 9</h3>
             <p class="NovidadePreco">R$ 100,00</p>
-        </div>
-        <div class="novidade">
-            <img src="img/bikini5.jpg" alt="Novidade 4" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 5</h2>
+          </div>
+          <div
+            class="novidade"
+            data-name="Biquini 10"
+            data-price="R$ 100,00"
+            data-img="img/bikini10.jpg"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="img/bikini10.jpg"
+              alt="Biquini tie-dye"
+              class="novidadeimg"
+            />
+            <h3 class="NovidadeFonte">Biquini 10</h3>
             <p class="NovidadePreco">R$ 100,00</p>
-        </div>   
-    </div> 
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <div class="novidades">
-        <div class="novidade">
-            <img src="img/bikini6.jpg" alt="Novidade 1" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 6</h2>
-            <p class="NovidadePreco">R$ 100,00</p>
+    <div
+      id="productModal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      style="display: none"
+    >
+      <div class="modal-content">
+        <div class="modal-left">
+          <img
+            id="modalImage"
+            src=""
+            alt="Produto ampliado para detalhes"
+            class="modal-image"
+          />
         </div>
-        <div class="novidade">
-            <img src="img/bikini7.jpg" alt="Novidade 2" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 7</h2>
-            <p class="NovidadePreco">R$ 100,00</p>
-        </div>
-        <div class="novidade">
-            <img src="img/bikini8.jpg" alt="Novidade 3" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 8</h2>
-            <p class="NovidadePreco">R$ 100,00</p>
-        </div>
-        <div class="novidade">
-            <img src="img/bikini9jpg.jpg" alt="Novidade 4" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 9</h2>
-            <p class="NovidadePreco">R$ 100,00</p>
-        </div>
-        <div class="novidade">
-            <img src="img/bikini10.jpg" alt="Novidade 4" class="novidadeimg">
-            <h2 class="NovidadeFonte">Biquini 10</h2>
-            <p class="NovidadePreco">R$ 100,00</p>
-        </div>   
-    </div> 
+        <div class="modal-right">
+          <button class="close" aria-label="Fechar Modal de Produto">
+            &times;
+          </button>
+          <h2 id="modalTitle">Título do Produto</h2>
+          <p id="modalDescription">Descrição do Produto</p>
 
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-left">
-                <img id="modalImage" src="" alt="Produto Ampliado" class="modal-image">
-            </div>
-            <div class="modal-right">
-                <span class="close">&times;</span>
-                <h2 id="modalTitle">Título do Produto</h2>
-                <p id="modalDescription">Descrição do Produto</p>
-                
-                <label for="quantity">Quantidade:</label>
-                <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 50px;">
-    
-                <label for="size">Tamanho:</label>
-                <select id="size" name="size">
-                    <option value="P">P</option>
-                    <option value="M">M</option>
-                    <option value="G">G</option>
-                    <option value="GG">GG</option>
-                </select>
-    
-                <button class="add-to-cart">Adicionar ao Carrinho</button>
-    
-            </div>
+          <div class="modal-options">
+            <label for="quantity">Quantidade:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value="1"
+              min="1"
+              style="width: 50px"
+              aria-live="polite"
+            />
+
+            <label for="size">Tamanho:</label>
+            <select id="size" name="size">
+              <option value="P">P</option>
+              <option value="M">M</option>
+              <option value="G">G</option>
+              <option value="GG">GG</option>
+            </select>
+          </div>
+
+          <button class="add-to-cart">Adicionar ao Carrinho</button>
         </div>
+      </div>
     </div>
-    
-    
+
+    <footer class="footer">
+      <h2>Loja KonaWai</h2>
+      <address>
+        <p>Endereço: Rua Caraguatatuba, nº 20</p>
+        <p>CEP: 12565-258</p>
+        <p>Telefone: <a href="tel:+551238886828">(12) 3888-6828</a></p>
+      </address>
+
+      <div
+        class="social"
+        role="contentinfo"
+        aria-label="Redes sociais da Loja KonaWai"
+      >
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          aria-label="Visite nossa página no Facebook"
+        >
+          <img
+            src="img/facebook-circle-logo-png.png"
+            alt="Logo do Facebook"
+            class="socialimg"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          aria-label="Visite nosso perfil no Instagram"
+        >
+          <img
+            src="img/Instagram_icon.png"
+            alt="Logo do Instagram"
+            class="socialimg"
+          />
+        </a>
+        <a
+          href="https://www.twitter.com"
+          target="_blank"
+          aria-label="Visite nosso perfil no Twitter"
+        >
+          <img src="img/x-icon.png" alt="Logo do Twitter/X" class="socialimg" />
+        </a>
+      </div>
+
+      <div class="copy">
+        <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>
+         
+      </div>
+         
+    </footer>
+
+    <script
+      src="https://static.elfsight.com/platform/platform.js"
+      async
+    ></script>
+    <div
+      class="elfsight-app-02d5008f-6ee7-4ece-bed7-cdb7a5e8dd35"
+      data-elfsight-app-lazy
+    ></div>
+
     <script>
-        const novidades = document.querySelectorAll('.novidadeimg');
-        const modal = document.getElementById('productModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDescription = document.getElementById('modalDescription');
-        const closeModal = document.querySelector('.close');
+      // === LÓGICA DO MODAL E MENU MANTIDA ===
 
-        // Função para exibir o modal com animação
-        function openModal(imgSrc, title, price) {
-            modalImage.src = imgSrc;
-            modalTitle.textContent = title;
-            modalDescription.innerHTML = "Este é o <strong>" + title + "</strong>, disponível por <strong>" + price + "</strong>. Aproveite a oferta e leve o seu!";
+      const novidadesItens = document.querySelectorAll(".novidade");
+      const modal = document.getElementById("productModal");
+      const modalImage = document.getElementById("modalImage");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDescription = document.getElementById("modalDescription");
+      const closeModalButton = document.querySelector(".modal .close");
 
+      function openModal(imgSrc, title, price) {
+        modalImage.src = imgSrc;
+        modalTitle.textContent = title;
+        modalDescription.innerHTML = `Este é o <strong>${title}</strong>, disponível por <strong>${price}</strong>. Aproveite a oferta e leve o seu!`;
 
-            // Exibe o modal com classe de animação
-            modal.classList.add('show');
+        modal.style.display = "flex";
+        setTimeout(() => {
+          modal.classList.add("show");
+        }, 10);
+
+        modal.focus();
+      }
+
+      function closeProductModal() {
+        modal.classList.remove("show");
+        setTimeout(() => {
+          modal.style.display = "none";
+        }, 400);
+      }
+
+      novidadesItens.forEach((item) => {
+        const title = item.getAttribute("data-name");
+        const price = item.getAttribute("data-price");
+        const imgSrc = item.getAttribute("data-img");
+
+        item.addEventListener("click", () => {
+          openModal(imgSrc, title, price);
+        });
+
+        item.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openModal(imgSrc, title, price);
+          }
+        });
+      });
+
+      closeModalButton.addEventListener("click", closeProductModal);
+
+      window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeProductModal();
         }
+      });
 
-        // Adiciona evento de clique em cada novidade
-        novidades.forEach((novidade) => {
-            novidade.addEventListener('click', (event) => {
-                const item = event.currentTarget.closest('.novidade');
-                const title = item.querySelector('h2').textContent;
-                const price = item.querySelector('.NovidadePreco').textContent;
-                const imgSrc = item.querySelector('img').src;
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.classList.contains("show")) {
+          closeProductModal();
+        }
+      });
 
-                openModal(imgSrc, title, price);
-            });
-        });
+      // === LÓGICA DO MENU MOBILE (Hambúrguer) ===
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navMenu = document.querySelector(".menu");
 
-        // Fechar o modal ao clicar no 'X' ou fora dele
-        closeModal.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
+      // CORRIGIDO: Agora seleciona os links <a> (que têm a classe ButtonHome)
+      const buttons = document.querySelectorAll(".ButtonHome");
 
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.classList.remove('show');
-            }
-        });
-     </script>
-    
-              
-    <script src="https://static.elfsight.com/platform/platform.js" async></script>
-    <div class="elfsight-app-02d5008f-6ee7-4ece-bed7-cdb7a5e8dd35" data-elfsight-app-lazy></div>
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        buttons.forEach((btn) => btn.classList.toggle("active"));
 
-    <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const buttons = document.querySelectorAll('.ButtonHome');
-
-    menuToggle.addEventListener('click', () => {
-    buttons.forEach(btn => btn.classList.toggle('active'));
-    });
+        const isExpanded =
+          menuToggle.getAttribute("aria-expanded") === "true" || false;
+        menuToggle.setAttribute("aria-expanded", !isExpanded);
+      });
     </script>
-
-
-    <footer>
-        <div class="footer">
-            <h2>Loja KonaWai</h2>
-            <p>Endereço: Rua Caraguatatuba, nº 20</p>
-            <p>CEP: 12565-258</p>
-            <p>Telefone: (12) 3888-6828</p>
-            <div class="social">
-                <a href="https://www.facebook.com" target="_blank"><img src="img/facebook-circle-logo-png.png" alt="Facebook" class="socialimg"></a>
-                <a href="https://www.instagram.com" target="_blank"><img src="img/Instagram_icon.png" alt="Instagram" class="socialimg"></a>
-                <a href="https://www.twitter.com" target="_blank"><img src="img/x-icon.png" alt="Twitter" class="socialimg"></a>
-            </div>
-            <div class="copy">
-                <p>&copy; 2021 Loja KonaWai. Todos os direitos reservados.</p>  
-            </div>    
-        </div>
-</body>
-
+  </body>
 </html>
