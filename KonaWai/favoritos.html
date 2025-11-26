@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Favoritos</title>
+<link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+<h1>Meus Favoritos</h1>
+
+<div id="favoritosContainer" class="novidades"></div>
+
+<script>
+function loadFavorites() {
+    return JSON.parse(localStorage.getItem("favoritos")) || [];
+}
+
+const container = document.getElementById("favoritosContainer");
+const favoritos = loadFavorites();
+
+if (favoritos.length === 0) {
+    container.innerHTML = "<p>Nenhum item adicionado aos favoritos.</p>";
+} else {
+    favoritos.forEach(prod => {
+        const card = document.createElement("div");
+        card.classList.add("novidade");
+
+        card.innerHTML = `
+            <img src="${prod.image}" class="novidadeimg">
+            <h2 class="NovidadeFonte">${prod.title}</h2>
+            <p class="NovidadePreco">${prod.price}</p>
+            <button class="remove-fav">Remover</button>
+        `;
+
+        card.querySelector(".remove-fav").addEventListener("click", () => {
+            const updated = favoritos.filter(f => f.title !== prod.title);
+            localStorage.setItem("favoritos", JSON.stringify(updated));
+            location.reload();
+        });
+
+        container.appendChild(card);
+    });
+}
+</script>
+</body>
+</html>
+

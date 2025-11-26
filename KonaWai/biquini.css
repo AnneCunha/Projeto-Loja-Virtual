@@ -328,3 +328,21 @@ select {
     cursor: pointer;
 }
 
+.favorite-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border: none;
+    cursor: pointer;
+    color: #ff0000;
+    background-color: #000000;
+    border-radius: 30px;
+   
+}
+
+.novidade {
+    position: relative;
+}
+
+
+
